@@ -28,7 +28,6 @@ scale = Vector2(2.4641, 2.4641)
 metadata/_edit_use_anchors_ = true
 
 [node name="PopUp" parent="Player/Camera2D" instance=ExtResource("4_sdfnk")]
-visible = false
 offset_left = -1061.0
 offset_top = -463.0
 offset_right = -1061.0
