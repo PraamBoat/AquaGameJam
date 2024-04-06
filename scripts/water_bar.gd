@@ -27,3 +27,15 @@ func _on_timer_timeout():
 
 func _on_dog_hit():
 	$ProgressBar.value -= 30
+
+
+func _on_water_droplet_collect():
+	$ProgressBar.value += 30
+
+
+func _on_water_zone_not_water():
+	$Timer.start()
+
+
+func _on_water_zone_water():
+	$Timer.stop()

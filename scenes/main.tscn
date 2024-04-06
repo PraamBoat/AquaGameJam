@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://0j48eikusblw"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_p1stc"]
-[ext_resource type="PackedScene" uid="uid://tqjfgs2xk37e" path="res://nodes/player.tscn" id="2_qnds7"]
-[ext_resource type="PackedScene" uid="uid://bxlmynlyt4ehu" path="res://nodes/water_bar.tscn" id="3_7cv01"]
-[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="4_lrdl4"]
-[ext_resource type="PackedScene" path="res://scenes/dog.tscn" id="5_2n0r8"]
+[ext_resource type="PackedScene" uid="uid://tqjfgs2xk37e" path="res://scenes/player.tscn" id="2_qnds7"]
+[ext_resource type="PackedScene" uid="uid://bxlmynlyt4ehu" path="res://scenes/water_bar.tscn" id="3_7cv01"]
+[ext_resource type="PackedScene" uid="uid://b205fbo3yxbyp" path="res://scenes/pause_menu.tscn" id="4_lrdl4"]
+[ext_resource type="PackedScene" uid="uid://c8r8uyimmr701" path="res://scenes/dog.tscn" id="5_2n0r8"]
 [ext_resource type="PackedScene" uid="uid://dmh247kpxlcqd" path="res://nodes/Water_Droplet.tscn" id="6_go3j2"]
 [ext_resource type="PackedScene" uid="uid://dvryaaskies6o" path="res://nodes/water_zone.tscn" id="7_ht625"]
 
