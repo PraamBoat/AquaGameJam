@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://0j48eikusblw"]
+[gd_scene load_steps=8 format=3 uid="uid://0j48eikusblw"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_p1stc"]
-[ext_resource type="PackedScene" uid="uid://tqjfgs2xk37e" path="res://scenes/player.tscn" id="2_qnds7"]
-[ext_resource type="PackedScene" uid="uid://bxlmynlyt4ehu" path="res://scenes/water_bar.tscn" id="3_7cv01"]
-[ext_resource type="PackedScene" uid="uid://b205fbo3yxbyp" path="res://scenes/pause_menu.tscn" id="4_lrdl4"]
-[ext_resource type="PackedScene" uid="uid://c8r8uyimmr701" path="res://scenes/dog.tscn" id="5_2n0r8"]
+[ext_resource type="PackedScene" uid="uid://tqjfgs2xk37e" path="res://nodes/player.tscn" id="2_qnds7"]
+[ext_resource type="PackedScene" uid="uid://bxlmynlyt4ehu" path="res://nodes/water_bar.tscn" id="3_7cv01"]
+[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="4_lrdl4"]
+[ext_resource type="PackedScene" path="res://scenes/dog.tscn" id="5_2n0r8"]
+[ext_resource type="PackedScene" uid="uid://dmh247kpxlcqd" path="res://nodes/Water_Droplet.tscn" id="6_go3j2"]
+[ext_resource type="PackedScene" uid="uid://dvryaaskies6o" path="res://nodes/water_zone.tscn" id="7_ht625"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_p1stc")
 
-[node name="Player" parent="." instance=ExtResource("2_qnds7")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_qnds7")]
 position = Vector2(71, 77)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -33,5 +35,14 @@ scale = Vector2(2.5, 2.5)
 position = Vector2(1057, 570)
 scale = Vector2(0.1, 0.1)
 
+[node name="Water droplet" parent="." instance=ExtResource("6_go3j2")]
+position = Vector2(469, 56)
+
+[node name="Water_Zone" parent="." instance=ExtResource("7_ht625")]
+position = Vector2(-308, 106)
+
 [connection signal="game_over" from="Player/Camera2D/WaterBar" to="Player" method="_on_node_2d_game_over"]
 [connection signal="hit" from="Dog" to="Player/Camera2D/WaterBar" method="_on_dog_hit"]
+[connection signal="collect" from="Water droplet" to="Player/Camera2D/WaterBar" method="_on_water_droplet_collect"]
+[connection signal="NotWater" from="Water_Zone" to="Player/Camera2D/WaterBar" method="_on_water_zone_not_water"]
+[connection signal="Water" from="Water_Zone" to="Player/Camera2D/WaterBar" method="_on_water_zone_water"]

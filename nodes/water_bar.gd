@@ -17,3 +17,15 @@ func _on_timer_timeout():
 	if ($ProgressBar.value <= 0):
 		$Label.text = "Dead"
 		emit_signal("game_over")
+
+
+func _on_water_droplet_collect():
+	$ProgressBar.value += 10
+	
+
+func _on_water_zone_water():
+	$Timer.stop()
+
+
+func _on_water_zone_not_water():
+	$Timer.start()
