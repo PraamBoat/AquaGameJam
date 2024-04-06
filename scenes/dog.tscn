@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8r8uyimmr701"]
+
+[ext_resource type="Script" path="res://scripts/dog.gd" id="1_qnaru"]
+[ext_resource type="Texture2D" uid="uid://c6pi81eb2ylx1" path="res://images/rabid_dog.png" id="2_q6dw1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhnwc"]
+radius = 1043.52
+
+[node name="Dog" type="CharacterBody2D"]
+script = ExtResource("1_qnaru")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.960001, 0.76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qhnwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_q6dw1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

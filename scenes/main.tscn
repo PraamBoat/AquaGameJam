@@ -1,15 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://0j48eikusblw"]
+[gd_scene load_steps=6 format=3 uid="uid://0j48eikusblw"]
 
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_15b5i"]
-[ext_resource type="PackedScene" uid="uid://tqjfgs2xk37e" path="res://nodes/player.tscn" id="2_qnds7"]
-[ext_resource type="PackedScene" uid="uid://bxlmynlyt4ehu" path="res://nodes/water_bar.tscn" id="3_7cv01"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_p1stc"]
+[ext_resource type="PackedScene" uid="uid://tqjfgs2xk37e" path="res://scenes/player.tscn" id="2_qnds7"]
+[ext_resource type="PackedScene" uid="uid://bxlmynlyt4ehu" path="res://scenes/water_bar.tscn" id="3_7cv01"]
+[ext_resource type="PackedScene" uid="uid://b205fbo3yxbyp" path="res://scenes/pause_menu.tscn" id="4_lrdl4"]
+[ext_resource type="PackedScene" uid="uid://c8r8uyimmr701" path="res://scenes/dog.tscn" id="5_2n0r8"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_15b5i")
+script = ExtResource("1_p1stc")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_qnds7")]
+[node name="Player" parent="." instance=ExtResource("2_qnds7")]
 position = Vector2(71, 77)
 
-[node name="Node2D" parent="." instance=ExtResource("3_7cv01")]
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.5, 0.5)
 
-[connection signal="game_over" from="Node2D" to="CharacterBody2D" method="_on_node_2d_game_over"]
+[node name="WaterBar" parent="Player/Camera2D" instance=ExtResource("3_7cv01")]
+offset_left = -1105.0
+offset_top = -610.0
+offset_right = -1065.0
+offset_bottom = -570.0
+scale = Vector2(2.4641, 2.4641)
+
+[node name="PauseControl" parent="Player/Camera2D" instance=ExtResource("4_lrdl4")]
+offset_left = -1403.0
+offset_top = -727.0
+offset_right = -1403.0
+offset_bottom = -727.0
+scale = Vector2(2.5, 2.5)
+
+[node name="Dog" parent="." instance=ExtResource("5_2n0r8")]
+position = Vector2(1057, 570)
+scale = Vector2(0.1, 0.1)
+
+[connection signal="game_over" from="Player/Camera2D/WaterBar" to="Player" method="_on_node_2d_game_over"]
+[connection signal="hit" from="Dog" to="Player/Camera2D/WaterBar" method="_on_dog_hit"]
