@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxlmynlyt4ehu"]
+
+[ext_resource type="Script" path="res://nodes/water_bar.gd" id="1_4ymwd"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_4ymwd")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 47.0
+offset_bottom = 26.0
+text = "Water"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_top = 30.0
+offset_right = 333.0
+offset_bottom = 63.0
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 28.0
+offset_right = 40.0
+offset_bottom = 345.0
+fill_mode = 3
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

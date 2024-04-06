@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://0j48eikusblw"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_15b5i"]
+[ext_resource type="PackedScene" uid="uid://tqjfgs2xk37e" path="res://nodes/player.tscn" id="2_qnds7"]
+[ext_resource type="PackedScene" uid="uid://bxlmynlyt4ehu" path="res://nodes/water_bar.tscn" id="3_7cv01"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_15b5i")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_qnds7")]
+position = Vector2(71, 77)
+
+[node name="Node2D" parent="." instance=ExtResource("3_7cv01")]
+
+[connection signal="game_over" from="Node2D" to="CharacterBody2D" method="_on_node_2d_game_over"]
