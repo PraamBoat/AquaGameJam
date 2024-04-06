@@ -50,12 +50,12 @@ motion_mode = 1
 script = ExtResource("1_2ahhh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.075, 0.075)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_ir0a7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -3)
-scale = Vector2(1.12, 1.08)
+scale = Vector2(4.19414, 4.04434)
 shape = SubResource("CircleShape2D_g6hsj")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -63,3 +63,7 @@ amount = 12
 process_material = SubResource("ParticleProcessMaterial_e66ks")
 texture = ExtResource("3_c3ghs")
 script = SubResource("GDScript_t4kh1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

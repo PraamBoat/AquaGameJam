@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://sqnsc2cyr1hc"]
+
+[ext_resource type="Texture2D" uid="uid://umitf4f5ray2" path="res://images/bedroom_bathroom.png" id="1_5wptn"]
+[ext_resource type="PackedScene" uid="uid://tqjfgs2xk37e" path="res://scenes/player.tscn" id="2_phlvg"]
+[ext_resource type="PackedScene" uid="uid://bxlmynlyt4ehu" path="res://scenes/water_bar.tscn" id="3_67efn"]
+[ext_resource type="PackedScene" uid="uid://qvsj2j0xcgu6" path="res://nodes/popup.tscn" id="4_cl5yj"]
+[ext_resource type="PackedScene" uid="uid://b205fbo3yxbyp" path="res://scenes/pause_menu.tscn" id="5_a8ms7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7wdw"]
+size = Vector2(585, 1.99272)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5wptn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(681.5, 1613)
+shape = SubResource("RectangleShape2D_v7wdw")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Sprite2D"]
+position = Vector2(1, 561)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D2"]
+position = Vector2(681.5, 1613)
+shape = SubResource("RectangleShape2D_v7wdw")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Sprite2D"]
+position = Vector2(45, 256)
+scale = Vector2(1.22466, 1.0073)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D3"]
+position = Vector2(758.574, 1625.75)
+rotation = 3.14159
+scale = Vector2(0.00398625, -281.043)
+shape = SubResource("RectangleShape2D_v7wdw")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Sprite2D"]
+position = Vector2(-541, 256)
+scale = Vector2(1.22466, 1.0073)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D4"]
+position = Vector2(757.742, 1788.7)
+rotation = -3.14159
+scale = Vector2(0.00443102, -116.333)
+shape = SubResource("RectangleShape2D_v7wdw")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Sprite2D"]
+position = Vector2(-541, -71)
+scale = Vector2(1.2313, 0.989893)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D5"]
+position = Vector2(756.105, 1761.81)
+rotation = -3.14159
+scale = Vector2(0.00465696, -61.9215)
+shape = SubResource("RectangleShape2D_v7wdw")
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_phlvg")]
+visible = false
+position = Vector2(764, 1901)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.5, 0.5)
+
+[node name="WaterBar" parent="Player/Camera2D" instance=ExtResource("3_67efn")]
+offset_left = -1105.0
+offset_top = -610.0
+offset_right = -1065.0
+offset_bottom = -570.0
+scale = Vector2(2.4641, 2.4641)
+metadata/_edit_use_anchors_ = true
+
+[node name="PopUp" parent="Player/Camera2D" instance=ExtResource("4_cl5yj")]
+visible = false
+offset_left = -1061.0
+offset_top = -463.0
+offset_right = -1061.0
+offset_bottom = -463.0
+scale = Vector2(1.76278, 1.76278)
+
+[node name="PauseControl" parent="Player/Camera2D" instance=ExtResource("5_a8ms7")]
+offset_left = -1403.0
+offset_top = -727.0
+offset_right = -1403.0
+offset_bottom = -727.0
+scale = Vector2(2.5, 2.5)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="show_popup" from="Player/Camera2D/WaterBar" to="Player/Camera2D/PopUp" method="_on_water_bar_show_popup"]

@@ -1,11 +1,15 @@
 extends CharacterBody2D
 
 var speed = 300
+var size = 50
 var player_position
 var target_position
 @onready var player = get_parent().get_node("Player")
+var HIT_TEXT = "Hit by dog lmao. -30% water cause he's a thirsty boy"
+var EAT_TEXT = "Dogs are 50% to 70% water content. Very yummy!"
 
 signal hit
+signal eat
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -16,8 +20,13 @@ func _process(delta):
 			velocity = target_position * speed
 			move_and_slide()
 
-
 func _on_area_2d_body_entered(body):
 	if (body == player):
-		emit_signal("hit")
-		queue_free()
+		if (size < Global.player_size):
+			player.get_node("Camera2D").get_node("PopUp").get_node("ColorRect").get_node("Label").text = EAT_TEXT
+			emit_signal("eat")
+			queue_free()
+		else:
+			player.get_node("Camera2D").get_node("PopUp").get_node("ColorRect").get_node("Label").text = HIT_TEXT
+			emit_signal("hit")
+			queue_free()

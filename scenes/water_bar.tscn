@@ -22,6 +22,7 @@ offset_right = 333.0
 offset_bottom = 63.0
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
@@ -31,5 +32,7 @@ offset_top = 28.0
 offset_right = 40.0
 offset_bottom = 345.0
 fill_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
