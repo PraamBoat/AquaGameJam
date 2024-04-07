@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://sqnsc2cyr1hc"]
+[gd_scene load_steps=25 format=3 uid="uid://sqnsc2cyr1hc"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_8xjmm"]
 [ext_resource type="PackedScene" uid="uid://tqjfgs2xk37e" path="res://scenes/player.tscn" id="2_phlvg"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://qvsj2j0xcgu6" path="res://nodes/popup.tscn" id="4_cl5yj"]
 [ext_resource type="PackedScene" uid="uid://b205fbo3yxbyp" path="res://scenes/pause_menu.tscn" id="5_a8ms7"]
 [ext_resource type="PackedScene" uid="uid://dvryaaskies6o" path="res://nodes/water_zone.tscn" id="6_tban2"]
+[ext_resource type="PackedScene" uid="uid://bm2vu73dslo8m" path="res://scenes/game_over.tscn" id="7_g8uie"]
 [ext_resource type="PackedScene" uid="uid://bg4gajjeq32x2" path="res://scenes/insect.tscn" id="7_l0kch"]
 [ext_resource type="PackedScene" uid="uid://c8r8uyimmr701" path="res://scenes/dog.tscn" id="8_e3k20"]
 [ext_resource type="PackedScene" uid="uid://d21ehd288us0e" path="res://scenes/rat.tscn" id="10_hxa61"]
@@ -47,6 +48,8 @@ b = Vector2(-1, 734)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ef8cb"]
 b = Vector2(70, 2)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vntxb"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_8xjmm")
@@ -321,6 +324,13 @@ polygon = PackedVector2Array(-2492, 245, -2497, 386, -887, 351, -891, 243)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D39"]
 polygon = PackedVector2Array(523, 2027, 655, 2027, 653, 1983, 1298, 1973, 1304, 2019, 1492, 2013, 1492, 2042, 518, 2048)
 
+[node name="Area2D2" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D2"]
+position = Vector2(-2553, -556)
+scale = Vector2(3.13233, 3.13233)
+shape = SubResource("CircleShape2D_vntxb")
+
 [node name="StaticBody2D40" type="StaticBody2D" parent="Sprite2D"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D40"]
@@ -359,6 +369,13 @@ offset_bottom = -727.0
 scale = Vector2(2.5, 2.5)
 metadata/_edit_use_anchors_ = true
 
+[node name="GameOver" parent="Player/Camera2D" instance=ExtResource("7_g8uie")]
+offset_left = -934.161
+offset_top = -573.938
+offset_right = -934.161
+offset_bottom = -573.938
+scale = Vector2(1.63155, 1.67295)
+
 [node name="Water_Zone" parent="." instance=ExtResource("6_tban2")]
 position = Vector2(763, 1882)
 scale = Vector2(1.20714, 1.11967)
@@ -393,7 +410,11 @@ scale = Vector2(2.78334, 1.31509)
 position = Vector2(66, -1037)
 scale = Vector2(0.28891, 0.28891)
 
+[node name="SoundEffects" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="game_over" from="Player/Camera2D/WaterBar" to="Player/Camera2D/GameOver" method="_on_water_bar_game_over"]
 [connection signal="show_popup" from="Player/Camera2D/WaterBar" to="Player/Camera2D/PopUp" method="_on_water_bar_show_popup"]
 [connection signal="NotWater" from="Water_Zone" to="Player/Camera2D/WaterBar" method="_on_water_zone_not_water"]
 [connection signal="Water" from="Water_Zone" to="Player/Camera2D/WaterBar" method="_on_water_zone_water"]
@@ -408,5 +429,7 @@ scale = Vector2(0.28891, 0.28891)
 [connection signal="eat" from="Dog" to="Player/Camera2D/WaterBar" method="_on_dog_eat"]
 [connection signal="hit" from="Dog" to="Player/Camera2D/WaterBar" method="_on_dog_hit"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="NotWater" from="Water_Zone5" to="Player/Camera2D/WaterBar" method="_on_water_zone_5_not_water"]
+[connection signal="Water" from="Water_Zone5" to="Player/Camera2D/WaterBar" method="_on_water_zone_5_water"]
 [connection signal="eat" from="Rat" to="Player/Camera2D/WaterBar" method="_on_rat_eat"]
 [connection signal="hit" from="Rat" to="Player/Camera2D/WaterBar" method="_on_rat_hit"]

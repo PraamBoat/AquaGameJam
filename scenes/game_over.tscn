@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm2vu73dslo8m"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_ijpw7"]
+[ext_resource type="Texture2D" uid="uid://buxe6lprsycuf" path="res://images/button.png" id="2_gq3vl"]
+[ext_resource type="FontFile" uid="uid://dwj5p6xwlxtmt" path="res://images/SuperComic-qZg62.ttf" id="3_qmm8m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cw378"]
+font = ExtResource("3_qmm8m")
+font_size = 40
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameOver" type="Control"]
+process_mode = 3
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ijpw7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 91.0
+offset_right = 82.0
+offset_bottom = 131.0
+scale = Vector2(26.7159, 11.8435)
+color = Color(0, 0.498039, 1, 0.443137)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 15.1595
+offset_top = 9.20333
+offset_right = 112.16
+offset_bottom = 35.2033
+scale = Vector2(0.0853735, 0.236267)
+text = "Game over!"
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+offset_left = 741.0
+offset_top = 309.0
+offset_right = 2133.0
+offset_bottom = 1582.0
+scale = Vector2(0.138551, 0.138551)
+texture_normal = ExtResource("2_gq3vl")
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureButton2"]
+modulate = Color(0.505882, 0, 0.443137, 1)
+z_index = -1
+position = Vector2(700.102, 642.361)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_gq3vl")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 303.0
+offset_right = 1606.0
+offset_bottom = 1576.0
+scale = Vector2(0.138551, 0.138551)
+texture_normal = ExtResource("2_gq3vl")
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureButton"]
+modulate = Color(0.505882, 0, 0.443137, 1)
+z_index = -1
+position = Vector2(700.102, 642.361)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_gq3vl")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 755.0
+offset_top = 378.0
+offset_right = 925.0
+offset_bottom = 425.0
+text = "MENU"
+label_settings = SubResource("LabelSettings_cw378")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 210.0
+offset_top = 373.0
+offset_right = 407.0
+offset_bottom = 420.0
+text = "RETRY"
+label_settings = SubResource("LabelSettings_cw378")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
