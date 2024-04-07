@@ -1,6 +1,89 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxlmynlyt4ehu"]
+[gd_scene load_steps=10 format=3 uid="uid://bxlmynlyt4ehu"]
 
 [ext_resource type="Script" path="res://scripts/water_bar.gd" id="1_76l8e"]
+[ext_resource type="Texture2D" uid="uid://c34bsqpmpmfhf" path="res://images/gauge_bottom.png" id="2_okfic"]
+[ext_resource type="Texture2D" uid="uid://chbtkacit4wj1" path="res://images/gauge_top.png" id="3_paj6o"]
+[ext_resource type="Texture2D" uid="uid://bwofws7661mj7" path="res://images/gauge_fill.png" id="4_3q3w6"]
+[ext_resource type="Texture2D" uid="uid://dghfse4lkgm5g" path="res://images/blobby.png" id="5_7v15i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fb4pc"]
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_t0qlf"]
+resource_name = "active"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 3.14159, 4.71239, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.0534746, 0.0534746), Vector2(0.0637722, 0.0679648), Vector2(0.053, 0.06), Vector2(0.0653875, 0.0695822), Vector2(0.0561178, 0.0561178), Vector2(0.0673685, 0.0727763), Vector2(0.056, 0.065), Vector2(0.0676612, 0.0730983), Vector2(0.056, 0.056)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qv8l6"]
+resource_name = "damage"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.964706, 0, 0.117647, 1), Color(0.964706, 0, 0.117647, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5dml1"]
+_data = {
+"active": SubResource("Animation_t0qlf"),
+"damage": SubResource("Animation_qv8l6")
+}
 
 [node name="WaterBar" type="Control"]
 layout_mode = 3
@@ -10,22 +93,34 @@ offset_bottom = 40.0
 script = ExtResource("1_76l8e")
 
 [node name="Label" type="Label" parent="."]
+visible = false
+z_index = 1
 layout_mode = 0
-offset_right = 47.0
-offset_bottom = 26.0
+offset_left = 89.0
+offset_top = 106.0
+offset_right = 136.0
+offset_bottom = 132.0
 text = "Water"
+label_settings = SubResource("LabelSettings_fb4pc")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_top = 30.0
-offset_right = 333.0
-offset_bottom = 63.0
+offset_left = -96.0
+offset_top = 50.0
+offset_right = 2384.0
+offset_bottom = 3558.0
+scale = Vector2(0.165384, 0.159351)
+fill_mode = 3
+texture_under = ExtResource("2_okfic")
+texture_over = ExtResource("3_paj6o")
+texture_progress = ExtResource("4_3q3w6")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 5.0
 offset_top = 28.0
@@ -35,4 +130,17 @@ fill_mode = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.964706, 0, 0.117647, 1)
+position = Vector2(109, 114)
+rotation = 6.28319
+scale = Vector2(0.0534746, 0.0534746)
+texture = ExtResource("5_7v15i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5dml1")
+}
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

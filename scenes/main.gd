@@ -6,11 +6,18 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	$AudioStreamPlayer.stream = bgm
 	$AudioStreamPlayer.play()
+	Global.paused = false
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") and not Global.paused:
 		$Player/Camera2D/PauseControl.show()
+		Global.paused = true
 		get_tree().paused = true
 
 func _on_audio_stream_player_finished():
 	$AudioStreamPlayer.play()
+
+
+func _on_area_2d_body_entered(body):
+	if (body == $Player):
+		$Player.knockback(-$Player.velocity)

@@ -8,10 +8,10 @@ func _ready():
 	$AudioStreamPlayer.stream = bgm
 	$AudioStreamPlayer.play()
 
-func _input(event):
-	if event.is_action_pressed("ui_cancel"):
-		$Player/Camera2D/PauseControl.show()
-		get_tree().paused = true
+#func _input(event):
+	#if event.is_action_pressed("ui_cancel") and not get_tree().paused:
+	#	$Player/Camera2D/PauseControl.show()
+	#	get_tree().paused = true
 
 func _on_audio_stream_player_finished():
 	$AudioStreamPlayer.play()

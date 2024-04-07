@@ -19,4 +19,5 @@ func _on_water_bar_show_popup():
 
 
 func _on_animation_player_animation_finished(anim_name):
+	$Timer.paused = false
 	$Timer.start(show_time)

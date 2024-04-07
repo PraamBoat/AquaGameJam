@@ -7,18 +7,28 @@ var target_position
 @onready var player = get_parent().get_node("Player")
 var HIT_TEXT = "Hit by dog lmao. -30% water cause he's a thirsty boy"
 var EAT_TEXT = "Dogs are 50% to 70% water content. Very yummy!"
+var seen = false
+var originalPosition
 
 signal hit
 signal eat
+
+func _ready():
+	originalPosition = position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if is_instance_valid(player):
 		player_position = player.position
 		target_position = (player_position - position).normalized()
-		if position.distance_to(player_position) < 300:
+		if position.distance_to(player_position) < 500:
 			velocity = target_position * speed
 			move_and_slide()
+		else:
+			target_position = (originalPosition - position).normalized()
+			if position.distance_to(target_position) > 100:
+				velocity = target_position * speed
+				move_and_slide()
 
 func _on_area_2d_body_entered(body):
 	if (body == player):

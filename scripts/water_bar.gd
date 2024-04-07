@@ -8,6 +8,8 @@ var dead = false
 @onready var sprite = player.get_node("Sprite2D")
 @onready var hitbox = player.get_node("CollisionShape2D")
 
+var loops
+
 var sploosh = preload("res://sounds/water_woosh.mp3")
 var splash = preload("res://sounds/splash.mp3")
 
@@ -17,27 +19,29 @@ signal show_popup
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Label.text = "Health %s" % water
-	$ProgressBar.value = water
+	$TextureProgressBar.value = water
+	$AnimationPlayer.play("active")
+	loops = 0
 	
 func _physics_process(delta):
 	if is_instance_valid(player):
-		sprite.scale = Vector2($ProgressBar.value/800,$ProgressBar.value/800)
-		hitbox.scale = Vector2($ProgressBar.value/75,$ProgressBar.value/75)
-		Global.player_size = $ProgressBar.value
+		sprite.scale = Vector2($TextureProgressBar.value/800,$TextureProgressBar.value/800)
+		hitbox.scale = Vector2($TextureProgressBar.value/75,$TextureProgressBar.value/75)
+		Global.player_size = $TextureProgressBar.value
 
 func _input(event):
 	if event.is_action_pressed("ui_copy"):
-		$ProgressBar.value += 10
+		$TextureProgressBar.value += 10
 
 func _on_timer_timeout():
-	$ProgressBar.value -= Global.passiveDrain
-	$Label.text = "Health is %s" % $ProgressBar.value
-	if ($ProgressBar.value <= 0):
+	$TextureProgressBar.value -= Global.passiveDrain
+	$Label.text = "Health is %s" % $TextureProgressBar.value
+	if ($TextureProgressBar.value <= 0):
 		$Label.text = "Dead"
 		emit_signal("game_over")
 
 func _on_water_droplet_collect():
-	$ProgressBar.value += 30
+	$TextureProgressBar.value += 30
 
 
 func _on_water_zone_not_water():
@@ -48,30 +52,34 @@ func _on_water_zone_water():
 	$Timer.stop()
 
 func _on_dog_hit():
-	$ProgressBar.value -= 10
-	$Label.text = "Health is %s" % $ProgressBar.value
+	$TextureProgressBar.value -= 10
+	$Label.text = "Health is %s" % $TextureProgressBar.value
 	$AudioStreamPlayer.stream = splash
 	$AudioStreamPlayer.play()
+	loops = 0
+	$AnimationPlayer.play("damage")
 	emit_signal("show_popup")
 	
 func _on_insect_hit():
-	$ProgressBar.value -= 5
-	$Label.text = "Health is %s" % $ProgressBar.value
+	$TextureProgressBar.value -= 5
+	$Label.text = "Health is %s" % $TextureProgressBar.value
 	$AudioStreamPlayer.stream = splash
 	$AudioStreamPlayer.play()
+	loops = 0
+	$AnimationPlayer.play("damage")
 	emit_signal("show_popup")
 
 
 func _on_insect_eat():
-	$ProgressBar.value += 15
-	$Label.text = "Health is %s" % $ProgressBar.value
+	$TextureProgressBar.value += 15
+	$Label.text = "Health is %s" % $TextureProgressBar.value
 	$AudioStreamPlayer.stream = sploosh
 	$AudioStreamPlayer.play()
 	emit_signal("show_popup")
 
 func _on_dog_eat():
-	$ProgressBar.value += 50
-	$Label.text = "Health is %s" % $ProgressBar.value
+	$TextureProgressBar.value += 50
+	$Label.text = "Health is %s" % $TextureProgressBar.value
 	$AudioStreamPlayer.stream = sploosh
 	$AudioStreamPlayer.play()
 	emit_signal("show_popup")
@@ -99,3 +107,12 @@ func _on_water_zone_4_not_water():
 
 func _on_water_zone_4_water():
 	$Timer.stop()
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "damage":
+		if loops == 4:
+			$AnimationPlayer.play("active")
+		else:
+			loops+=1
+			$AnimationPlayer.play("damage")
