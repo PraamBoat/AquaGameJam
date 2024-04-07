@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://28bfe0h4vohj"]
+
+[ext_resource type="Script" path="res://scripts/level_exit.gd" id="1_ep7yv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hc5ur"]
+size = Vector2(132, 51)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5xyuj"]
+radius = 180.069
+
+[node name="Level_Exit" type="Node2D"]
+script = ExtResource("1_ep7yv")
+
+[node name="Exit" type="Area2D" parent="."]
+
+[node name="ColisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_hc5ur")
+
+[node name="Popup" type="Area2D" parent="."]
+
+[node name="ColisionShape2D" type="CollisionShape2D" parent="Popup"]
+scale = Vector2(1.4, 1)
+shape = SubResource("CircleShape2D_5xyuj")
+
+[connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
+[connection signal="body_entered" from="Popup" to="." method="_on_popup_body_entered"]
