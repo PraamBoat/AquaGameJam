@@ -31,6 +31,8 @@ func _physics_process(delta):
 	$Label.text = "%s" % $TextureProgressBar.value
 	if ($TextureProgressBar.value <= 0):
 		emit_signal("game_over")
+	else:
+		Global.water = $TextureProgressBar.value 
 
 func _input(event):
 	if event.is_action_pressed("ui_copy"):
@@ -43,7 +45,7 @@ func _on_timer_timeout():
 	#	emit_signal("game_over")
 
 func _on_water_droplet_collect():
-	$TextureProgressBar.value += 30
+	$TextureProgressBar.value += 15
 
 
 func _on_water_zone_not_water():
@@ -121,7 +123,7 @@ func _on_animation_player_animation_finished(anim_name):
 
 
 func _on_rat_eat():
-	$TextureProgressBar.value += 20
+	$TextureProgressBar.value += 10
 	#$Label.text = "%s" % $TextureProgressBar.value
 	$AudioStreamPlayer.stream = sploosh
 	$AudioStreamPlayer.play()
@@ -144,3 +146,7 @@ func _on_water_zone_5_not_water():
 
 func _on_water_zone_5_water():
 	$Timer.stop()
+
+
+func _on_water_droplet_2_collect():
+	$TextureProgressBar.value += 5

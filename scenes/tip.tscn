@@ -139,6 +139,7 @@ offset_bottom = 67.0
 scale = Vector2(5.28685, 14.9099)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 1269.0
 offset_top = 34.0
 offset_right = 1309.0
@@ -147,6 +148,7 @@ scale = Vector2(4.96885, 14.5872)
 color = Color(0, 0, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 1273.0
 offset_top = 39.0
 offset_right = 1458.0

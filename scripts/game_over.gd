@@ -29,7 +29,7 @@ func _input(event):
 			get_tree().reload_current_scene()
 		elif activeButton == 1:
 			get_tree().paused = false
-			get_tree().change_scene_to_file("res://scenes/level_screen.tscn")
+			get_tree().change_scene_to_file("res://scenes/title.tscn")
 
 func _on_water_bar_game_over():
 	show()
@@ -40,7 +40,7 @@ func _on_water_bar_game_over():
 func _on_texture_button_2_pressed():
 	get_tree().paused = false
 	gameOver = 0
-	get_tree().change_scene_to_file("res://scenes/level_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/title.tscn")
 
 
 func _on_texture_button_pressed():

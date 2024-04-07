@@ -355,7 +355,7 @@ scale = Vector2(1.81853, 1.81853)
 metadata/_edit_use_anchors_ = true
 
 [node name="PopUp" parent="Player/Camera2D" instance=ExtResource("4_cl5yj")]
-z_index = 3
+z_index = 4
 offset_left = -1018.84
 offset_top = -556.465
 offset_right = -1018.84
@@ -422,8 +422,17 @@ scale = Vector2(0.28891, 0.28891)
 
 [node name="SoundEffects" type="AudioStreamPlayer" parent="."]
 
+[node name="Water droplet2" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-175, 1173)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet3" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(504, 2111)
+scale = Vector2(0.394421, 0.394421)
+
 [node name="Water droplet" parent="." instance=ExtResource("13_4uou3")]
 position = Vector2(-341, 1287)
+scale = Vector2(0.393707, 0.393707)
 
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Sprite2D/Area2D2" to="." method="_on_area_2d_2_body_entered"]
@@ -446,4 +455,8 @@ position = Vector2(-341, 1287)
 [connection signal="Water" from="Water_Zone5" to="Player/Camera2D/WaterBar" method="_on_water_zone_5_water"]
 [connection signal="eat" from="Rat" to="Player/Camera2D/WaterBar" method="_on_rat_eat"]
 [connection signal="hit" from="Rat" to="Player/Camera2D/WaterBar" method="_on_rat_hit"]
+[connection signal="collect" from="Water droplet2" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet3" to="Player/Camera2D/WaterBar" method="_on_water_droplet_collect"]
+[connection signal="collect" from="Water droplet3" to="Player/Camera2D/tip" method="_on_water_droplet_3_collect"]
+[connection signal="collect" from="Water droplet" to="Player/Camera2D/WaterBar" method="_on_water_droplet_collect"]
 [connection signal="collect" from="Water droplet" to="Player/Camera2D/tip" method="_on_water_droplet_collect"]

@@ -76,6 +76,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="ColorRect"]
 z_index = 2
+layout_mode = 0
 offset_left = 1.58266
 offset_top = 8.64023
 offset_right = 392.583
