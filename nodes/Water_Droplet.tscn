@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dmh247kpxlcqd"]
 
-[ext_resource type="Texture2D" uid="uid://e4pe0v3w1yui" path="res://icon.svg" id="1_1hf6c"]
 [ext_resource type="Script" path="res://nodes/water_droplet.gd" id="1_y3jwa"]
+[ext_resource type="Texture2D" uid="uid://4f2ukg28k8vp" path="res://images/puddle.png" id="2_6eu2y"]
 
 [sub_resource type="GDScript" id="GDScript_dhd8m"]
 script/source = "extends CollisionPolygon2D
@@ -26,6 +26,7 @@ polygon = PackedVector2Array(100, 0, 86.603, 50, 70.7, 70.7, 50, 86.603, 0, 100,
 script = SubResource("GDScript_dhd8m")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("1_1hf6c")
+scale = Vector2(0.804323, 0.804323)
+texture = ExtResource("2_6eu2y")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

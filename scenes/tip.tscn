@@ -1,0 +1,170 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi0r5g5jmyoj"]
+
+[ext_resource type="Texture2D" uid="uid://dghfse4lkgm5g" path="res://images/blobby.png" id="1_tosgs"]
+[ext_resource type="Script" path="res://scripts/tip.gd" id="1_yqolo"]
+
+[sub_resource type="Animation" id="Animation_3i2n3"]
+resource_name = "slide_in"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1184, 27), Vector2(889, 27), Vector2(908, 27)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1190, 34), Vector2(895, 34), Vector2(914, 34)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1286, 536), Vector2(991, 536), Vector2(1010, 536)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../RichTextLabel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1194, 39), Vector2(899, 39), Vector2(918, 39)]
+}
+
+[sub_resource type="Animation" id="Animation_s5rn8"]
+resource_name = "slide_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(908, 27), Vector2(1263, 27)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(914, 34), Vector2(1269, 34)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../RichTextLabel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(918, 39), Vector2(1273, 39)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1010, 536), Vector2(1365, 536)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v40fo"]
+_data = {
+"slide_in": SubResource("Animation_3i2n3"),
+"slide_out": SubResource("Animation_s5rn8")
+}
+
+[node name="Tip" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 275.0
+offset_right = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqolo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ColorRect")
+libraries = {
+"": SubResource("AnimationLibrary_v40fo")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1263.0
+offset_top = 27.0
+offset_right = 1303.0
+offset_bottom = 67.0
+scale = Vector2(5.28685, 14.9099)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 1269.0
+offset_top = 34.0
+offset_right = 1309.0
+offset_bottom = 74.0
+scale = Vector2(4.96885, 14.5872)
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 1273.0
+offset_top = 39.0
+offset_right = 1458.0
+offset_bottom = 315.0
+text = "What am I? (ad infinitum)
+Mankind knew that they cannot change society
+So instead of reflecting on themselves, they blamed the beasts
+But they found beauty in the lives of beasts
+And couldn't lie to themselves about it"
+fit_content = true
+scroll_active = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1365, 536)
+scale = Vector2(0.0759425, 0.0759425)
+texture = ExtResource("1_tosgs")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

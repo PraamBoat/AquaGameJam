@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://sqnsc2cyr1hc"]
+[gd_scene load_steps=27 format=3 uid="uid://sqnsc2cyr1hc"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_8xjmm"]
 [ext_resource type="PackedScene" uid="uid://tqjfgs2xk37e" path="res://scenes/player.tscn" id="2_phlvg"]
@@ -9,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://dvryaaskies6o" path="res://nodes/water_zone.tscn" id="6_tban2"]
 [ext_resource type="PackedScene" uid="uid://bm2vu73dslo8m" path="res://scenes/game_over.tscn" id="7_g8uie"]
 [ext_resource type="PackedScene" uid="uid://bg4gajjeq32x2" path="res://scenes/insect.tscn" id="7_l0kch"]
+[ext_resource type="PackedScene" uid="uid://bi0r5g5jmyoj" path="res://scenes/tip.tscn" id="8_cxgis"]
 [ext_resource type="PackedScene" uid="uid://c8r8uyimmr701" path="res://scenes/dog.tscn" id="8_e3k20"]
 [ext_resource type="PackedScene" uid="uid://d21ehd288us0e" path="res://scenes/rat.tscn" id="10_hxa61"]
+[ext_resource type="PackedScene" uid="uid://dmh247kpxlcqd" path="res://nodes/Water_Droplet.tscn" id="13_4uou3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7wdw"]
 size = Vector2(585, 1.99272)
@@ -376,6 +378,14 @@ offset_right = -934.161
 offset_bottom = -573.938
 scale = Vector2(1.63155, 1.67295)
 
+[node name="tip" parent="Player/Camera2D" instance=ExtResource("8_cxgis")]
+z_index = 3
+offset_left = -994.646
+offset_top = -555.12
+offset_right = -994.646
+offset_bottom = -555.12
+scale = Vector2(1.70212, 1.70212)
+
 [node name="Water_Zone" parent="." instance=ExtResource("6_tban2")]
 position = Vector2(763, 1882)
 scale = Vector2(1.20714, 1.11967)
@@ -412,6 +422,9 @@ scale = Vector2(0.28891, 0.28891)
 
 [node name="SoundEffects" type="AudioStreamPlayer" parent="."]
 
+[node name="Water droplet" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-341, 1287)
+
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Sprite2D/Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="game_over" from="Player/Camera2D/WaterBar" to="Player/Camera2D/GameOver" method="_on_water_bar_game_over"]
@@ -433,3 +446,4 @@ scale = Vector2(0.28891, 0.28891)
 [connection signal="Water" from="Water_Zone5" to="Player/Camera2D/WaterBar" method="_on_water_zone_5_water"]
 [connection signal="eat" from="Rat" to="Player/Camera2D/WaterBar" method="_on_rat_eat"]
 [connection signal="hit" from="Rat" to="Player/Camera2D/WaterBar" method="_on_rat_hit"]
+[connection signal="collect" from="Water droplet" to="Player/Camera2D/tip" method="_on_water_droplet_collect"]

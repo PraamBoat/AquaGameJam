@@ -1,6 +1,98 @@
-[gd_scene load_steps=2 format=3 uid="uid://dljfe3tyd3to"]
+[gd_scene load_steps=12 format=3 uid="uid://dljfe3tyd3to"]
 
 [ext_resource type="Script" path="res://scripts/title.gd" id="1_l4h0r"]
+[ext_resource type="Texture2D" uid="uid://4f2ukg28k8vp" path="res://images/puddle.png" id="2_ib6ia"]
+[ext_resource type="FontFile" uid="uid://dwj5p6xwlxtmt" path="res://images/SuperComic-qZg62.ttf" id="3_lo84n"]
+[ext_resource type="Texture2D" uid="uid://1w7goswjg5oi" path="res://images/logo.png" id="4_n3qe0"]
+[ext_resource type="PackedScene" uid="uid://buiwru53h3jrc" path="res://scenes/bubble.tscn" id="5_lw1f3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jdoiv"]
+font = ExtResource("3_lo84n")
+font_size = 48
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_aj7qe"]
+resource_name = "bound"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.193146, 0.193146), Vector2(0.234927, 0.234927), Vector2(0.193, 0.193), Vector2(0.158899, 0.158899), Vector2(0.193146, 0.193146)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nwrdc"]
+_data = {
+"bound": SubResource("Animation_aj7qe")
+}
+
+[sub_resource type="Animation" id="Animation_qqj0k"]
+resource_name = "fly_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1179, 534), Vector2(1174, 537), Vector2(1034, 531)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.613197, -0.00147575]
+}
+
+[sub_resource type="Animation" id="Animation_ba05g"]
+resource_name = "fly_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.00147575, -0.697979]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1034, 531), Vector2(1179, 667)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4fy12"]
+_data = {
+"fly_in": SubResource("Animation_qqj0k"),
+"fly_out": SubResource("Animation_ba05g")
+}
 
 [node name="Node2D" type="Node2D"]
 
@@ -11,12 +103,181 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_l4h0r")
 
-[node name="Button" type="Button" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="Control"]
+z_index = -2
 layout_mode = 0
-offset_left = 399.0
-offset_top = 266.0
-offset_right = 689.0
-offset_bottom = 332.0
-text = "Start"
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.8368, 16.2734)
+color = Color(0.607843, 1, 1, 1)
 
-[connection signal="pressed" from="Control/Button" to="Control" method="_on_button_pressed"]
+[node name="TextureButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 381.0
+offset_right = 753.0
+offset_bottom = 637.0
+scale = Vector2(0.603327, 0.593673)
+texture_normal = ExtResource("2_ib6ia")
+
+[node name="Label" type="Label" parent="Control/TextureButton"]
+layout_mode = 0
+offset_left = 29.8345
+offset_top = 85.9058
+offset_right = 228.835
+offset_bottom = 155.906
+text = "START"
+label_settings = SubResource("LabelSettings_jdoiv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/TextureButton"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(127.626, 128.016)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_ib6ia")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(574, 209)
+scale = Vector2(0.193146, 0.193146)
+texture = ExtResource("4_n3qe0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+libraries = {
+"": SubResource("AnimationLibrary_nwrdc")
+}
+
+[node name="Timer" type="Timer" parent="Control"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+
+[node name="BackButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 1183.0
+offset_top = 677.0
+offset_right = 1439.0
+offset_bottom = 933.0
+scale = Vector2(0.386711, 0.380523)
+texture_normal = ExtResource("2_ib6ia")
+
+[node name="Label" type="Label" parent="Control/BackButton"]
+layout_mode = 0
+offset_left = -9.94484
+offset_top = 87.5903
+offset_right = 277.055
+offset_bottom = 157.59
+text = "Back"
+label_settings = SubResource("LabelSettings_jdoiv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/BackButton"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(127.626, 128.016)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_ib6ia")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Control"]
+libraries = {
+"": SubResource("AnimationLibrary_4fy12")
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+rotation = -0.613197
+
+[node name="Level3Button" type="TextureButton" parent="Control/ColorRect2"]
+layout_mode = 0
+offset_left = 841.0
+offset_top = 421.0
+offset_right = 1097.0
+offset_bottom = 677.0
+scale = Vector2(0.707886, 0.696558)
+texture_normal = ExtResource("2_ib6ia")
+
+[node name="Label" type="Label" parent="Control/ColorRect2/Level3Button"]
+layout_mode = 0
+offset_left = -9.94484
+offset_top = 87.5903
+offset_right = 277.055
+offset_bottom = 157.59
+text = "LEVEL 3"
+label_settings = SubResource("LabelSettings_jdoiv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/ColorRect2/Level3Button"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(127.626, 128.016)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_ib6ia")
+
+[node name="Level2Button" type="TextureButton" parent="Control/ColorRect2"]
+layout_mode = 0
+offset_left = 919.0
+offset_top = 225.0
+offset_right = 1175.0
+offset_bottom = 481.0
+scale = Vector2(0.707886, 0.696558)
+texture_normal = ExtResource("2_ib6ia")
+
+[node name="Label" type="Label" parent="Control/ColorRect2/Level2Button"]
+layout_mode = 0
+offset_left = -9.94484
+offset_top = 87.5903
+offset_right = 277.055
+offset_bottom = 157.59
+text = "LEVEL 2"
+label_settings = SubResource("LabelSettings_jdoiv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/ColorRect2/Level2Button"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(127.626, 128.016)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_ib6ia")
+
+[node name="Level1Button" type="TextureButton" parent="Control/ColorRect2"]
+layout_mode = 0
+offset_left = 838.0
+offset_top = 31.0
+offset_right = 1094.0
+offset_bottom = 287.0
+scale = Vector2(0.707886, 0.696558)
+texture_normal = ExtResource("2_ib6ia")
+
+[node name="Label" type="Label" parent="Control/ColorRect2/Level1Button"]
+layout_mode = 0
+offset_left = -9.94484
+offset_top = 87.5903
+offset_right = 277.055
+offset_bottom = 157.59
+text = "LEVEL 1"
+label_settings = SubResource("LabelSettings_jdoiv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/ColorRect2/Level1Button"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(127.626, 128.016)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_ib6ia")
+
+[node name="bubble" parent="." instance=ExtResource("5_lw1f3")]
+position = Vector2(-7, 649)
+
+[connection signal="pressed" from="Control/TextureButton" to="Control" method="_on_texture_button_pressed"]
+[connection signal="timeout" from="Control/Timer" to="Control" method="_on_timer_timeout"]
+[connection signal="finished" from="Control/AudioStreamPlayer" to="Control" method="_on_audio_stream_player_finished"]
+[connection signal="pressed" from="Control/BackButton" to="Control" method="_on_back_button_pressed"]
+[connection signal="pressed" from="Control/ColorRect2/Level3Button" to="Control" method="_on_level_3_button_pressed"]
+[connection signal="pressed" from="Control/ColorRect2/Level2Button" to="Control" method="_on_level_2_button_pressed"]
+[connection signal="pressed" from="Control/ColorRect2/Level1Button" to="Control" method="_on_level_1_button_pressed"]

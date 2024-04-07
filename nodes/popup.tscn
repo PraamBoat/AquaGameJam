@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://qvsj2j0xcgu6"]
+[gd_scene load_steps=7 format=3 uid="uid://qvsj2j0xcgu6"]
 
 [ext_resource type="Script" path="res://scripts/popup.gd" id="1_n6ln5"]
+[ext_resource type="FontFile" uid="uid://dwj5p6xwlxtmt" path="res://images/SuperComic-qZg62.ttf" id="2_53toj"]
 [ext_resource type="Texture2D" uid="uid://dghfse4lkgm5g" path="res://images/blobby.png" id="2_g2cqp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_51hoj"]
+font = ExtResource("2_53toj")
+font_size = 14
 
 [sub_resource type="Animation" id="Animation_v7c7g"]
 resource_name = "slide_in"
@@ -36,10 +41,10 @@ script = ExtResource("1_n6ln5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 463.0
-offset_right = 168.0
-offset_bottom = 503.0
+offset_left = 69.0
+offset_top = 642.0
+offset_right = 109.0
+offset_bottom = 682.0
 scale = Vector2(22.7465, 3.12492)
 
 [node name="ColorRect2" type="ColorRect" parent="ColorRect"]
@@ -71,13 +76,13 @@ color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="ColorRect"]
 z_index = 2
-layout_mode = 0
-offset_left = 1.67058
-offset_top = 5.52327
-offset_right = 305.671
-offset_bottom = 31.5233
+offset_left = 1.58266
+offset_top = 8.64023
+offset_right = 392.583
+offset_bottom = 34.6403
 scale = Vector2(0.0714426, 0.692732)
 text = "Blobby will pay for his crimes someday."
+label_settings = SubResource("LabelSettings_51hoj")
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect"]
 layout_mode = 0
