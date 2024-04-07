@@ -72,3 +72,27 @@ func _on_dog_eat():
 	$AudioStreamPlayer.stream = sploosh
 	$AudioStreamPlayer.play()
 	emit_signal("show_popup")
+
+
+func _on_water_zone_2_not_water():
+	$Timer.start()
+
+
+func _on_water_zone_2_water():
+	$Timer.stop()
+
+
+func _on_water_zone_3_not_water():
+	$Timer.start()
+
+
+func _on_water_zone_3_water():
+	$Timer.stop()
+
+
+func _on_water_zone_4_not_water():
+	$Timer.start()
+
+
+func _on_water_zone_4_water():
+	$Timer.stop()
