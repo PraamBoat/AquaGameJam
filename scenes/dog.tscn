@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8r8uyimmr701"]
+[gd_scene load_steps=5 format=3 uid="uid://c8r8uyimmr701"]
 
 [ext_resource type="Script" path="res://scripts/dog.gd" id="1_qnaru"]
 [ext_resource type="Texture2D" uid="uid://c6pi81eb2ylx1" path="res://images/rabid_dog.png" id="2_q6dw1"]
+[ext_resource type="FontFile" uid="uid://dwj5p6xwlxtmt" path="res://images/SuperComic-qZg62.ttf" id="3_u5f1k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8xb08"]
+font = ExtResource("3_u5f1k")
+font_size = 48
+font_color = Color(1, 0, 0, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Dog" type="CharacterBody2D"]
 script = ExtResource("1_qnaru")
@@ -17,5 +25,15 @@ polygon = PackedVector2Array(-995.832, -322.368, -1006.25, -80.2632, -922.916, -
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-952, -487, -922, -563, -676, -590, -498, -686, -522, -820, -456, -718, -113, -707, 33, -805, 8, -625, 50, -413, 139, -273, 440, -201, 699, -250, 771, -385, 777, -659, 820, -400, 764, -163, 902, 488, 949, 753, 832, 342, 683, 292, 573, 641, 585, 337, -52, 335, -29, 703, -167, 323, -319, 225, -552, 603, -369, 128, -381, -120, -904, -55, -949, -184, -880, -143, -787, -234, -695, -105, -576, -279, -471, -177, -409, -303, -293, -217, -290, -410, -419, -505, -492, -407, -559, -498, -656, -407, -711, -507, -821, -436, -887, -536)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -1325.0
+offset_top = -5.99994
+offset_right = -1219.0
+offset_bottom = 41.0001
+rotation = 0.0615883
+scale = Vector2(7.96062, 7.96062)
+text = "100"
+label_settings = SubResource("LabelSettings_8xb08")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

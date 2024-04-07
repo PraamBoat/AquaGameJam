@@ -61,7 +61,7 @@ func _on_texture_button_3_pressed():
 
 func _on_level_timer_recording_done():
 	show()
-	$ColorRect/Label2.text="Time: %s" % Global.time_taken[0]
+	$ColorRect/Label2.text="Time: %s" % Global.time_taken[-1]
 	$ColorRect/Label3.text="Water: %s" % Global.water
 	levelOver = 1
 	get_tree().paused = true

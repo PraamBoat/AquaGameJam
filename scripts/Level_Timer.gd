@@ -21,7 +21,7 @@ func _process(delta):
 	
 
 func _on_level_exit_end_level():
-	Global.time_taken[$Label.text]
+	Global.time_taken.append($Label.text)
 	timer_on=false
 	emit_signal("recordingDone")
 	print($Label.text)

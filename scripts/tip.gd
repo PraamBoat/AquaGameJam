@@ -8,7 +8,8 @@ func _ready():
 	hide()
 
 func _on_timer_timeout():
-	$AnimationPlayer.play("slide_out")
+	#$AnimationPlayer.play("slide_out")
+	hide()
 
 
 func _on_water_droplet_collect():
@@ -26,5 +27,5 @@ func usual():
 	$AnimationPlayer.play("slide_in")
 
 func _on_water_droplet_3_collect():
-	$RichTextLabel.text = "This is Blobby. He loses water when he’s not in it. Collect water droplets to gain small amounts of water."
+	$RichTextLabel.text = "This is Blobby. He loses water when he’s not in it. Collect water droplets to gain small amounts of water.\nYou can sprint using Shift or A, but be careful, you lose more water when sprinting!"
 	usual()

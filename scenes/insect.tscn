@@ -1,9 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg4gajjeq32x2"]
+[gd_scene load_steps=6 format=3 uid="uid://bg4gajjeq32x2"]
 
 [ext_resource type="Script" path="res://scripts/insect.gd" id="1_mm7kl"]
 [ext_resource type="Texture2D" uid="uid://bknqt0q2rmi2v" path="res://images/insect.png" id="2_47ji6"]
+[ext_resource type="FontFile" uid="uid://dwj5p6xwlxtmt" path="res://images/SuperComic-qZg62.ttf" id="3_srjod"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_alqa3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_thlqw"]
+font = ExtResource("3_srjod")
+font_size = 48
+font_color = Color(1, 0, 0, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Insect" type="CharacterBody2D"]
 script = ExtResource("1_mm7kl")
@@ -20,5 +28,15 @@ shape = SubResource("CircleShape2D_alqa3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(-936, 192, -809, 338, -639, 375, -448, 357, -329, 262, -174, 329, -153, 483, -109, 343, 223, 338, 225, 588, 252, 589, 323, 316, 434, 297, 428, 440, 536, 259, 617, 238, 682, 505, 711, 207, 831, 165, 838, 275, 892, 124, 911, 115, 952, 316, 988, 61, 1026, 26, 931, -232, 801, -387, 447, -508, -15, -482, -50, -587, -126, -620, -218, -557, -253, -527, -221, -495, -188, -536, -121, -600, -58, -543, -40, -470, -162, -419, -224, -351, -258, -476, -391, -536, -496, -473, -537, -462, -521, -433, -486, -428, -463, -463, -378, -509, -277, -449, -251, -346, -377, -106, -555, -182, -716, -168, -953, -3, -1013, 151, -787, 0, -781, 115, -625, -92, -569, 37, -490, -104, -349, 91, -457, 216, -531, 117, -571, 252, -751, 153, -740, 259)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -821.0
+offset_top = -502.0
+offset_right = -715.0
+offset_bottom = -455.0
+rotation = -0.319014
+scale = Vector2(7.96062, 7.96062)
+text = "100"
+label_settings = SubResource("LabelSettings_thlqw")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

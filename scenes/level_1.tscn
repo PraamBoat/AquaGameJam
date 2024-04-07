@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://dvryaaskies6o" path="res://nodes/water_zone.tscn" id="6_tban2"]
 [ext_resource type="PackedScene" uid="uid://bm2vu73dslo8m" path="res://scenes/game_over.tscn" id="7_g8uie"]
 [ext_resource type="PackedScene" uid="uid://bg4gajjeq32x2" path="res://scenes/insect.tscn" id="7_l0kch"]
-[ext_resource type="PackedScene" path="res://scenes/tip.tscn" id="8_cxgis"]
+[ext_resource type="PackedScene" uid="uid://bi0r5g5jmyoj" path="res://scenes/tip.tscn" id="8_cxgis"]
 [ext_resource type="PackedScene" uid="uid://c8r8uyimmr701" path="res://scenes/dog.tscn" id="8_e3k20"]
 [ext_resource type="PackedScene" uid="uid://xt866y0kgyga" path="res://scenes/level_end_screen.tscn" id="9_mi2o3"]
 [ext_resource type="PackedScene" uid="uid://ckbcja0eexobg" path="res://scenes/Level_Timer.tscn" id="10_4dq14"]
-[ext_resource type="PackedScene" path="res://scenes/rat.tscn" id="10_hxa61"]
+[ext_resource type="PackedScene" uid="uid://d21ehd288us0e" path="res://scenes/rat.tscn" id="10_hxa61"]
 [ext_resource type="PackedScene" uid="uid://dmh247kpxlcqd" path="res://nodes/Water_Droplet.tscn" id="13_4uou3"]
 [ext_resource type="PackedScene" uid="uid://28bfe0h4vohj" path="res://scenes/level_exit.tscn" id="15_blalk"]
 

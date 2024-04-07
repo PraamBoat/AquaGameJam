@@ -123,7 +123,7 @@ func _on_animation_player_animation_finished(anim_name):
 
 
 func _on_rat_eat():
-	$TextureProgressBar.value += 10
+	$TextureProgressBar.value += 20
 	#$Label.text = "%s" % $TextureProgressBar.value
 	$AudioStreamPlayer.stream = sploosh
 	$AudioStreamPlayer.play()
