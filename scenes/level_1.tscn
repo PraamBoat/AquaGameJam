@@ -303,12 +303,12 @@ polygon = PackedVector2Array(494, 521, 472, 2039, 529, 2036, 551, 519)
 [node name="StaticBody2D36" type="StaticBody2D" parent="Sprite2D"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D36"]
-polygon = PackedVector2Array(-3447, -223, -2498, -177, -2491, 601, -2223, 601, -2221, 1326, -2498, 1341, -2499, 1458, -2539, 1463, -2539, 73, -2721, 77, -2747, 392, -3239, 404, -3245, 65, -3428, 80)
+polygon = PackedVector2Array(-3447, -223, -2498, -177, -2491, 601, -2223, 601, -2221, 1326, -2498, 1341, -2499, 1458, -2539, 1463, -2539, 73, -2721, 77, -2747, 392, -3239, 404, -3245, 65, -3452, 85)
 
 [node name="StaticBody2D37" type="StaticBody2D" parent="Sprite2D"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D37"]
-polygon = PackedVector2Array(-2507, -181, -2501, -115, 588, -108, 588, -163)
+polygon = PackedVector2Array(-2507, -181, -2501, -115, 588, -108, 587, -161)
 
 [node name="StaticBody2D38" type="StaticBody2D" parent="Sprite2D"]
 
