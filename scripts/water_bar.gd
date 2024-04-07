@@ -149,4 +149,4 @@ func _on_water_zone_5_water():
 
 
 func _on_water_droplet_2_collect():
-	$TextureProgressBar.value += 5
+	$TextureProgressBar.value += 2

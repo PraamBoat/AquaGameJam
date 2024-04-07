@@ -97,7 +97,7 @@ func _input(event):
 		$AudioStreamPlayer2D.stream = splash
 		if (downPress || rightPress || upPress || downPress):
 			$AudioStreamPlayer2D.play()
-		Global.passiveDrain += 4
+		Global.passiveDrain += 2
 			
 	if event.is_action_released("ui_run"):
 		if abs(velocity.x) > MAX_SPEED:

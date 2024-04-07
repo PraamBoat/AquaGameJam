@@ -121,7 +121,6 @@ texture_over = ExtResource("3_paj6o")
 texture_progress = ExtResource("4_3q3w6")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
 autostart = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]

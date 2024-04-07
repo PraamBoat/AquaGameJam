@@ -441,7 +441,7 @@ position = Vector2(-175, 1173)
 scale = Vector2(0.246968, 0.246968)
 
 [node name="Water droplet3" parent="." instance=ExtResource("13_4uou3")]
-position = Vector2(504, 2111)
+position = Vector2(442, 1931)
 scale = Vector2(0.394421, 0.394421)
 
 [node name="Water droplet" parent="." instance=ExtResource("13_4uou3")]
@@ -451,6 +451,186 @@ scale = Vector2(0.393707, 0.393707)
 [node name="Level_Exit" parent="." instance=ExtResource("15_blalk")]
 position = Vector2(-4369, 270)
 scale = Vector2(2.31733, 1.30066)
+
+[node name="Water droplet4" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(122, 777)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet5" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(359, 645)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet6" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(435, 678)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet7" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(656, 434)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet8" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(631, 485)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet9" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(691, 484)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet10" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(638, 88)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet11" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(583, -430)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet12" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(659, -430)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet13" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(735, -433)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet14" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(798, -755)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet15" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(798, -926)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet16" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(207, -1377)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet17" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-115, -1111)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet18" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-69, -1155)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet19" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-134, -1169)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet20" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(157, -14)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet21" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-402, -101)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet22" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-1408, -171)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet23" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-2599, -236)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet24" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-3370, -1463)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet25" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-3414, -1389)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet26" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-3333, -1393)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet27" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-4936, -274)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet28" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-5004, -276)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet29" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-1866, 376)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet30" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-1870, 444)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet31" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-1921, 402)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet32" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-1487, 1928)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet33" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-1417, 1932)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet34" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-1451, 1883)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet35" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-3033, 296)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet36" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-3194, 300)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet37" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-2340, 641)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet38" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-3213, 993)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet39" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-3834, 1444)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet40" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-4531, 1878)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet41" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-5245, 1859)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet42" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-5374, 1228)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet43" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-5442, 671)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet44" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-5357, 671)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet45" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-3539, 1247)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet46" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-4213, 1698)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet47" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-1404, 669)
+scale = Vector2(0.246968, 0.246968)
+
+[node name="Water droplet48" parent="." instance=ExtResource("13_4uou3")]
+position = Vector2(-1440, 1269)
+scale = Vector2(0.246968, 0.246968)
 
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Sprite2D/Area2D2" to="." method="_on_area_2d_2_body_entered"]
@@ -480,3 +660,48 @@ scale = Vector2(2.31733, 1.30066)
 [connection signal="collect" from="Water droplet" to="Player/Camera2D/WaterBar" method="_on_water_droplet_collect"]
 [connection signal="collect" from="Water droplet" to="Player/Camera2D/tip" method="_on_water_droplet_collect"]
 [connection signal="endLevel" from="Level_Exit" to="Player/Camera2D/LevelTimer" method="_on_level_exit_end_level"]
+[connection signal="collect" from="Water droplet4" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet5" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet6" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet7" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet8" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet9" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet10" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet11" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet12" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet13" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet14" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet15" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet16" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet17" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet18" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet19" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet20" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet21" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet22" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet23" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet24" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet25" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet26" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet27" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet28" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet29" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet30" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet31" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet32" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet33" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet34" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet35" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet36" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet37" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet38" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet39" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet40" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet41" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet42" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet43" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet44" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet45" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet46" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet47" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="collect" from="Water droplet48" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
