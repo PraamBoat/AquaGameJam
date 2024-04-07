@@ -1,13 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://sqnsc2cyr1hc"]
+[gd_scene load_steps=19 format=3 uid="uid://sqnsc2cyr1hc"]
 
 [ext_resource type="Texture2D" uid="uid://umitf4f5ray2" path="res://images/bedroom_bathroom.png" id="1_5wptn"]
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_w3pfg"]
 [ext_resource type="PackedScene" uid="uid://tqjfgs2xk37e" path="res://scenes/player.tscn" id="2_phlvg"]
 [ext_resource type="PackedScene" uid="uid://bxlmynlyt4ehu" path="res://scenes/water_bar.tscn" id="3_67efn"]
 [ext_resource type="PackedScene" uid="uid://qvsj2j0xcgu6" path="res://nodes/popup.tscn" id="4_cl5yj"]
 [ext_resource type="PackedScene" uid="uid://b205fbo3yxbyp" path="res://scenes/pause_menu.tscn" id="5_a8ms7"]
-[ext_resource type="PackedScene" uid="uid://bg4gajjeq32x2" path="res://scenes/insect.tscn" id="6_1lkge"]
-[ext_resource type="PackedScene" uid="uid://c8r8uyimmr701" path="res://scenes/dog.tscn" id="8_syk4o"]
+[ext_resource type="PackedScene" uid="uid://dvryaaskies6o" path="res://nodes/water_zone.tscn" id="6_tban2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7wdw"]
 size = Vector2(585, 1.99272)
@@ -47,7 +45,6 @@ b = Vector2(-1, 734)
 b = Vector2(70, 2)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_w3pfg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_5wptn")
@@ -182,7 +179,7 @@ shape = SubResource("SegmentShape2D_ef8cb")
 [node name="StaticBody2D19" type="StaticBody2D" parent="Sprite2D"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D19"]
-polygon = PackedVector2Array(884, -1685, 904, -1644, 920, -1589, 924, -1520, 910, -1444, 877, -1370, 886, -1350, 913, -1333, 972, -1328, 982, -1328, 982, -1705, 906, -1696)
+polygon = PackedVector2Array(884, -1685, 904, -1644, 920, -1589, 924, -1520, 910, -1444, 877, -1370, 886, -1350, 913, -1333, 972, -1328, 982, -1328, 979, -1704, 906, -1696)
 
 [node name="StaticBody2D20" type="StaticBody2D" parent="Sprite2D"]
 
@@ -209,7 +206,7 @@ polygon = PackedVector2Array(-968, -1820, -964, -1219, -963, -437, 354, -450, 25
 [node name="StaticBody2D24" type="StaticBody2D" parent="Sprite2D"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D24"]
-polygon = PackedVector2Array(-285, -1736, -339, -1734, -322, -1214, -337, -986, -364, -801, -387, -753, -432, -718, -529, -686, -684, -662, -917, -648, -911, -1096, -850, -1083, -818, -1093, -792, -1124, -780, -1188, -773, -1308, -782, -1392, -801, -1426, -834, -1443, -868, -1441, -865, -1684, -792, -1756, -413, -1762, -393, -1754, -410, -1735, -422, -1746, -793, -1742, -848, -1681, -835, -1458, -797, -1435, -771, -1392, -764, -1304, -773, -1182, -787, -1118, -817, -1083, -862, -1071, -900, -660, -684, -670, -530, -694, -434, -726, -395, -758, -372, -804, -345, -987, -330, -1214, -339, -1733)
+polygon = PackedVector2Array(-285, -1736, -339, -1734, -322, -1214, -337, -986, -364, -801, -387, -753, -432, -718, -529, -686, -684, -662, -914, -649, -908, -1095, -850, -1083, -818, -1093, -792, -1124, -780, -1188, -773, -1308, -782, -1392, -801, -1426, -834, -1443, -868, -1441, -865, -1684, -792, -1756, -413, -1762, -393, -1754, -410, -1735, -422, -1746, -793, -1742, -848, -1681, -835, -1458, -797, -1435, -771, -1392, -764, -1304, -773, -1182, -787, -1118, -817, -1083, -862, -1071, -900, -660, -684, -670, -530, -694, -434, -726, -395, -758, -372, -804, -345, -987, -330, -1214, -339, -1733)
 
 [node name="StaticBody2D25" type="StaticBody2D" parent="Sprite2D"]
 
@@ -217,47 +214,57 @@ polygon = PackedVector2Array(-285, -1736, -339, -1734, -322, -1214, -337, -986, 
 polygon = PackedVector2Array(-689, 2035, -739, 2058, -768, 2043, -763, 2013, -735, 1954, -725, 1839, -722, 1720, -749, 1644, -741, 1604, -740, 1484, -700, 1459, -702, 1125, -697, 563, -670, 497, -607, 452, -537, 433, 157, 429, 156, 442, -541, 447, -606, 464, -662, 502, -688, 565, -687, 1462, -732, 1491, -733, 1609, -739, 1648, -712, 1723, -717, 1841, -726, 1957, -758, 2016, -759, 2041, -740, 2043)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_phlvg")]
-position = Vector2(721, 1885)
-scale = Vector2(0.8, 0.8)
+position = Vector2(764, 1901)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.5, 0.5)
 
 [node name="WaterBar" parent="Player/Camera2D" instance=ExtResource("3_67efn")]
-offset_left = -687.0
-offset_top = -368.0
-offset_right = -647.0
-offset_bottom = -328.0
-scale = Vector2(1.92262, 1.92262)
+offset_left = -1105.0
+offset_top = -610.0
+offset_right = -1065.0
+offset_bottom = -570.0
+scale = Vector2(2.4641, 2.4641)
 metadata/_edit_use_anchors_ = true
 
 [node name="PopUp" parent="Player/Camera2D" instance=ExtResource("4_cl5yj")]
-offset_left = -736.0
-offset_top = -400.0
-offset_right = -736.0
-offset_bottom = -400.0
-scale = Vector2(1.30042, 1.30042)
+visible = false
+offset_left = -1061.0
+offset_top = -463.0
+offset_right = -1061.0
+offset_bottom = -463.0
+scale = Vector2(1.76278, 1.76278)
 
 [node name="PauseControl" parent="Player/Camera2D" instance=ExtResource("5_a8ms7")]
-offset_left = -731.0
-offset_top = -383.0
-offset_right = -731.0
-offset_bottom = -383.0
-scale = Vector2(1.31634, 1.31634)
+offset_left = -1403.0
+offset_top = -727.0
+offset_right = -1403.0
+offset_bottom = -727.0
+scale = Vector2(2.5, 2.5)
 metadata/_edit_use_anchors_ = true
 
-[node name="Insect" parent="." instance=ExtResource("6_1lkge")]
-position = Vector2(-223, 924)
-scale = Vector2(0.0615485, 0.0615485)
+[node name="Water_Zone" parent="." instance=ExtResource("6_tban2")]
+position = Vector2(763, 1882)
+scale = Vector2(1.20714, 1.11967)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Water_Zone2" parent="." instance=ExtResource("6_tban2")]
+position = Vector2(779, -1529)
+scale = Vector2(2.05638, 3.06047)
 
-[node name="Dog" parent="." instance=ExtResource("8_syk4o")]
-position = Vector2(-734, -221)
-scale = Vector2(-0.226175, 0.226175)
+[node name="Water_Zone3" parent="." instance=ExtResource("6_tban2")]
+position = Vector2(-47, -1570)
+scale = Vector2(1.06093, 1.8027)
+
+[node name="Water_Zone4" parent="." instance=ExtResource("6_tban2")]
+position = Vector2(-592, -1595)
+scale = Vector2(2.29651, 1.70729)
 
 [connection signal="show_popup" from="Player/Camera2D/WaterBar" to="Player/Camera2D/PopUp" method="_on_water_bar_show_popup"]
-[connection signal="eat" from="Insect" to="Player/Camera2D/WaterBar" method="_on_insect_eat"]
-[connection signal="hit" from="Insect" to="Player/Camera2D/WaterBar" method="_on_insect_hit"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
-[connection signal="eat" from="Dog" to="Player/Camera2D/WaterBar" method="_on_dog_eat"]
-[connection signal="hit" from="Dog" to="Player/Camera2D/WaterBar" method="_on_dog_hit"]
+[connection signal="NotWater" from="Water_Zone" to="Player/Camera2D/WaterBar" method="_on_water_zone_not_water"]
+[connection signal="Water" from="Water_Zone" to="Player/Camera2D/WaterBar" method="_on_water_zone_water"]
+[connection signal="NotWater" from="Water_Zone2" to="Player/Camera2D/WaterBar" method="_on_water_zone_2_not_water"]
+[connection signal="Water" from="Water_Zone2" to="Player/Camera2D/WaterBar" method="_on_water_zone_2_water"]
+[connection signal="NotWater" from="Water_Zone3" to="Player/Camera2D/WaterBar" method="_on_water_zone_3_not_water"]
+[connection signal="Water" from="Water_Zone3" to="Player/Camera2D/WaterBar" method="_on_water_zone_3_water"]
+[connection signal="NotWater" from="Water_Zone4" to="Player/Camera2D/WaterBar" method="_on_water_zone_4_not_water"]
+[connection signal="Water" from="Water_Zone4" to="Player/Camera2D/WaterBar" method="_on_water_zone_4_water"]
