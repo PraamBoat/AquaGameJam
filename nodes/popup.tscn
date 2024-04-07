@@ -61,6 +61,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="ColorRect/ColorRect3"]
 visible = false
+layout_mode = 0
 offset_left = -1.29645
 offset_top = -6.74994
 offset_right = 38.7035
@@ -89,6 +90,7 @@ texture = ExtResource("2_g2cqp")
 expand_mode = 1
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

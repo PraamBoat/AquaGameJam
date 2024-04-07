@@ -1,11 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://sqnsc2cyr1hc"]
+[gd_scene load_steps=22 format=3 uid="uid://sqnsc2cyr1hc"]
 
 [ext_resource type="Texture2D" uid="uid://umitf4f5ray2" path="res://images/bedroom_bathroom.png" id="1_5wptn"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_8xjmm"]
 [ext_resource type="PackedScene" uid="uid://tqjfgs2xk37e" path="res://scenes/player.tscn" id="2_phlvg"]
 [ext_resource type="PackedScene" uid="uid://bxlmynlyt4ehu" path="res://scenes/water_bar.tscn" id="3_67efn"]
 [ext_resource type="PackedScene" uid="uid://qvsj2j0xcgu6" path="res://nodes/popup.tscn" id="4_cl5yj"]
 [ext_resource type="PackedScene" uid="uid://b205fbo3yxbyp" path="res://scenes/pause_menu.tscn" id="5_a8ms7"]
 [ext_resource type="PackedScene" uid="uid://dvryaaskies6o" path="res://nodes/water_zone.tscn" id="6_tban2"]
+[ext_resource type="PackedScene" uid="uid://bg4gajjeq32x2" path="res://scenes/insect.tscn" id="7_l0kch"]
+[ext_resource type="PackedScene" uid="uid://c8r8uyimmr701" path="res://scenes/dog.tscn" id="8_e3k20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7wdw"]
 size = Vector2(585, 1.99272)
@@ -45,6 +48,7 @@ b = Vector2(-1, 734)
 b = Vector2(70, 2)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_8xjmm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_5wptn")
@@ -214,25 +218,25 @@ polygon = PackedVector2Array(-285, -1736, -339, -1734, -322, -1214, -337, -986, 
 polygon = PackedVector2Array(-689, 2035, -739, 2058, -768, 2043, -763, 2013, -735, 1954, -725, 1839, -722, 1720, -749, 1644, -741, 1604, -740, 1484, -700, 1459, -702, 1125, -697, 563, -670, 497, -607, 452, -537, 433, 157, 429, 156, 442, -541, 447, -606, 464, -662, 502, -688, 565, -687, 1462, -732, 1491, -733, 1609, -739, 1648, -712, 1723, -717, 1841, -726, 1957, -758, 2016, -759, 2041, -740, 2043)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_phlvg")]
-position = Vector2(764, 1901)
+position = Vector2(726, 1904)
+scale = Vector2(0.743983, 0.743983)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.8, 0.8)
 
 [node name="WaterBar" parent="Player/Camera2D" instance=ExtResource("3_67efn")]
-offset_left = -1105.0
-offset_top = -610.0
-offset_right = -1065.0
-offset_bottom = -570.0
+offset_left = -946.258
+offset_top = -501.356
+offset_right = -906.258
+offset_bottom = -461.356
 scale = Vector2(2.4641, 2.4641)
 metadata/_edit_use_anchors_ = true
 
 [node name="PopUp" parent="Player/Camera2D" instance=ExtResource("4_cl5yj")]
-visible = false
-offset_left = -1061.0
-offset_top = -463.0
-offset_right = -1061.0
-offset_bottom = -463.0
+offset_left = -1018.84
+offset_top = -556.465
+offset_right = -1018.84
+offset_bottom = -556.465
 scale = Vector2(1.76278, 1.76278)
 
 [node name="PauseControl" parent="Player/Camera2D" instance=ExtResource("5_a8ms7")]
@@ -259,6 +263,16 @@ scale = Vector2(1.06093, 1.8027)
 position = Vector2(-592, -1595)
 scale = Vector2(2.29651, 1.70729)
 
+[node name="Insect" parent="." instance=ExtResource("7_l0kch")]
+position = Vector2(-164, 679)
+scale = Vector2(0.0433425, 0.0433425)
+
+[node name="Dog" parent="." instance=ExtResource("8_e3k20")]
+position = Vector2(-691, -236)
+scale = Vector2(-0.19736, 0.19736)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="show_popup" from="Player/Camera2D/WaterBar" to="Player/Camera2D/PopUp" method="_on_water_bar_show_popup"]
 [connection signal="NotWater" from="Water_Zone" to="Player/Camera2D/WaterBar" method="_on_water_zone_not_water"]
 [connection signal="Water" from="Water_Zone" to="Player/Camera2D/WaterBar" method="_on_water_zone_water"]
@@ -268,3 +282,8 @@ scale = Vector2(2.29651, 1.70729)
 [connection signal="Water" from="Water_Zone3" to="Player/Camera2D/WaterBar" method="_on_water_zone_3_water"]
 [connection signal="NotWater" from="Water_Zone4" to="Player/Camera2D/WaterBar" method="_on_water_zone_4_not_water"]
 [connection signal="Water" from="Water_Zone4" to="Player/Camera2D/WaterBar" method="_on_water_zone_4_water"]
+[connection signal="eat" from="Insect" to="Player/Camera2D/WaterBar" method="_on_insect_eat"]
+[connection signal="hit" from="Insect" to="Player/Camera2D/WaterBar" method="_on_insect_hit"]
+[connection signal="eat" from="Dog" to="Player/Camera2D/WaterBar" method="_on_dog_eat"]
+[connection signal="hit" from="Dog" to="Player/Camera2D/WaterBar" method="_on_dog_hit"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

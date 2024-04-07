@@ -1,6 +1,6 @@
 extends Control
 
-var text_to_show = "Glory to Aka-Chan"
+var text_to_show = "Test"
 var show_time = 2.5
 
 
@@ -13,6 +13,7 @@ func _on_timer_timeout():
 
 func _on_water_bar_show_popup():
 	show()
+	$Timer.paused = true
 	$Timer.wait_time = show_time
 	$AnimationPlayer.play("slide_in")
 
