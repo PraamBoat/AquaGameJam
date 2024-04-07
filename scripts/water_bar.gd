@@ -21,9 +21,13 @@ func _ready():
 	
 func _physics_process(delta):
 	if is_instance_valid(player):
-		sprite.scale = Vector2($ProgressBar.value/1000,$ProgressBar.value/1000)
-		hitbox.scale = Vector2($ProgressBar.value/1000,$ProgressBar.value/1000)
+		sprite.scale = Vector2($ProgressBar.value/800,$ProgressBar.value/800)
+		hitbox.scale = Vector2($ProgressBar.value/75,$ProgressBar.value/75)
 		Global.player_size = $ProgressBar.value
+
+func _input(event):
+	if event.is_action_pressed("ui_copy"):
+		$ProgressBar.value += 10
 
 func _on_timer_timeout():
 	$ProgressBar.value -= Global.passiveDrain
@@ -44,14 +48,14 @@ func _on_water_zone_water():
 	$Timer.stop()
 
 func _on_dog_hit():
-	$ProgressBar.value -= 30
+	$ProgressBar.value -= 10
 	$Label.text = "Health is %s" % $ProgressBar.value
 	$AudioStreamPlayer.stream = splash
 	$AudioStreamPlayer.play()
 	emit_signal("show_popup")
 	
 func _on_insect_hit():
-	$ProgressBar.value -= 15
+	$ProgressBar.value -= 5
 	$Label.text = "Health is %s" % $ProgressBar.value
 	$AudioStreamPlayer.stream = splash
 	$AudioStreamPlayer.play()
@@ -64,7 +68,6 @@ func _on_insect_eat():
 	$AudioStreamPlayer.stream = sploosh
 	$AudioStreamPlayer.play()
 	emit_signal("show_popup")
-
 
 func _on_dog_eat():
 	$ProgressBar.value += 50

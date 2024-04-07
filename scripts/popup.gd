@@ -13,6 +13,7 @@ func _on_timer_timeout():
 
 func _on_water_bar_show_popup():
 	show()
+	$Timer.wait_time = show_time
 	$AnimationPlayer.play("slide_in")
 
 

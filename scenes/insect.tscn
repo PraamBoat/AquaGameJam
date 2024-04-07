@@ -1,12 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bg4gajjeq32x2"]
+[gd_scene load_steps=4 format=3 uid="uid://bg4gajjeq32x2"]
 
 [ext_resource type="Script" path="res://scripts/insect.gd" id="1_mm7kl"]
 [ext_resource type="Texture2D" uid="uid://bknqt0q2rmi2v" path="res://images/insect.png" id="2_47ji6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_alqa3"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_7qp31"]
-radius = 34.7822
 
 [node name="Insect" type="CharacterBody2D"]
 script = ExtResource("1_mm7kl")
@@ -19,8 +16,7 @@ shape = SubResource("CircleShape2D_alqa3")
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(29.84, 15.92)
-shape = SubResource("CircleShape2D_7qp31")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-936, 192, -809, 338, -639, 375, -448, 357, -329, 262, -174, 329, -153, 483, -109, 343, 223, 338, 225, 588, 252, 589, 323, 316, 434, 297, 428, 440, 536, 259, 617, 238, 682, 505, 711, 207, 831, 165, 838, 275, 892, 124, 911, 115, 952, 316, 988, 61, 1026, 26, 931, -232, 801, -387, 447, -508, -15, -482, -50, -587, -126, -620, -218, -557, -253, -527, -221, -495, -188, -536, -121, -600, -58, -543, -40, -470, -162, -419, -224, -351, -258, -476, -391, -536, -496, -473, -537, -462, -521, -433, -486, -428, -463, -463, -378, -509, -277, -449, -251, -346, -377, -106, -555, -182, -716, -168, -953, -3, -1013, 151, -787, 0, -781, 115, -625, -92, -569, 37, -490, -104, -349, 91, -457, 216, -531, 117, -571, 252, -751, 153, -740, 259)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

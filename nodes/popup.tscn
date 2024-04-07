@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://qvsj2j0xcgu6"]
+[gd_scene load_steps=5 format=3 uid="uid://qvsj2j0xcgu6"]
 
 [ext_resource type="Script" path="res://scripts/popup.gd" id="1_n6ln5"]
+[ext_resource type="Texture2D" uid="uid://dghfse4lkgm5g" path="res://images/blobby.png" id="2_g2cqp"]
 
 [sub_resource type="Animation" id="Animation_v7c7g"]
 resource_name = "slide_in"
@@ -35,20 +36,19 @@ script = ExtResource("1_n6ln5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 69.0
-offset_top = 466.0
-offset_right = 109.0
-offset_bottom = 506.0
-scale = Vector2(25.04, 3.44)
-color = Color(0.137255, 0.137255, 0.137255, 1)
+offset_left = 128.0
+offset_top = 463.0
+offset_right = 168.0
+offset_bottom = 503.0
+scale = Vector2(22.7465, 3.12492)
 
 [node name="ColorRect2" type="ColorRect" parent="ColorRect"]
 layout_mode = 0
-offset_left = 0.399361
-offset_top = 2.03488
-offset_right = 40.3994
-offset_bottom = 42.0349
-scale = Vector2(0.602175, 0.964419)
+offset_left = 0.479233
+offset_top = 2.90697
+offset_right = 40.4793
+offset_bottom = 42.907
+scale = Vector2(0.992103, 0.846729)
 
 [node name="ColorRect3" type="ColorRect" parent="ColorRect"]
 layout_mode = 0
@@ -59,15 +59,34 @@ offset_bottom = 44.6512
 scale = Vector2(0.954904, 0.732133)
 color = Color(0, 0, 0, 1)
 
+[node name="ColorRect3" type="ColorRect" parent="ColorRect/ColorRect3"]
+visible = false
+offset_left = -1.29645
+offset_top = -6.74994
+offset_right = 38.7035
+offset_bottom = 33.2501
+scale = Vector2(-0.00517919, 1.37334)
+color = Color(0, 0, 0, 1)
+
 [node name="Label" type="Label" parent="ColorRect"]
 z_index = 2
 layout_mode = 0
-offset_left = 1.75719
+offset_left = 1.67058
 offset_top = 5.52327
-offset_right = 141.757
+offset_right = 305.671
 offset_bottom = 31.5233
 scale = Vector2(0.0714426, 0.692732)
-text = "Glory to Aka-Chan"
+text = "Blobby will pay for his crimes someday."
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 34.0256
+offset_top = -11.6279
+offset_right = 162.026
+offset_bottom = 116.372
+scale = Vector2(0.063832, 0.473456)
+texture = ExtResource("2_g2cqp")
+expand_mode = 1
 
 [node name="Timer" type="Timer" parent="."]
 

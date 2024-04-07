@@ -1,11 +1,10 @@
 extends CharacterBody2D
 
 const SPEED = 50.0
-const MAX_SPEED = 500.0
+const MAX_SPEED = 200.0
 const D_SPEED = 100.0
-const DASH_SPEED = 1000
+const DASH_SPEED = 350
 const DAMP = 10.0
-const BASE_SCALE = 0.075
 
 var h_direction
 var v_direction
@@ -122,3 +121,7 @@ func _on_node_2d_game_over():
 
 func _on_audio_stream_player_2d_finished():
 	$AudioStreamPlayer2D.play()
+	
+func knockback(enemy_velocity):
+	velocity.x += 6 * enemy_velocity.x
+	velocity.y += 6 * enemy_velocity.y
