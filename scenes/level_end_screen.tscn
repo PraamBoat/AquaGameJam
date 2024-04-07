@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://xt866y0kgyga"]
+[gd_scene load_steps=8 format=3 uid="uid://xt866y0kgyga"]
 
 [ext_resource type="Texture2D" uid="uid://buxe6lprsycuf" path="res://images/button.png" id="1_blqco"]
 [ext_resource type="Script" path="res://scripts/level_end_screen.gd" id="1_ecyuq"]
 [ext_resource type="FontFile" uid="uid://dwj5p6xwlxtmt" path="res://images/SuperComic-qZg62.ttf" id="2_esyxk"]
+[ext_resource type="Texture2D" uid="uid://dabppeocslbrj" path="res://images/star.png" id="4_07iyr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m3y06"]
 font = ExtResource("2_esyxk")
@@ -71,6 +72,7 @@ label_settings = SubResource("LabelSettings_h5bcp")
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="ColorRect"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 5.0
 offset_right = 324.0
@@ -163,6 +165,21 @@ text = "Main Menu"
 label_settings = SubResource("LabelSettings_dk2r7")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(13.4438, 20.0551)
+scale = Vector2(0.0170972, 0.0280175)
+texture = ExtResource("4_07iyr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(19.8751, 20.0551)
+scale = Vector2(0.0170972, 0.0280175)
+texture = ExtResource("4_07iyr")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(26.3149, 20.0551)
+scale = Vector2(0.0170972, 0.0280175)
+texture = ExtResource("4_07iyr")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]

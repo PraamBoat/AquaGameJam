@@ -29,3 +29,18 @@ func usual():
 func _on_water_droplet_3_collect():
 	$RichTextLabel.text = "This is Blobby. He loses water when he’s not in it. Collect water droplets to gain small amounts of water.\nYou can sprint using Shift or A, but be careful, you lose more water when sprinting!"
 	usual()
+
+
+func _on_explore_objective_achievement_complete():
+	$RichTextLabel.text = "The average family can waste 180 gallons per week, or 9,400 gallons of water annually, from household leaks. That's equivalent to the amount of water needed to wash more than 300 loads of laundry."
+	usual()
+
+
+func _on_level_exit_cannot_end():
+	$RichTextLabel.text = "Sorry, please explore more to exit the level. Try collecting more bubbles around the house."
+	usual()
+
+
+func _on_level_exit_can_end():
+	$RichTextLabel.text = "Congrats, enter the sink to end the level."
+	usual()

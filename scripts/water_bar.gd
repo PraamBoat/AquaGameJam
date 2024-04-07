@@ -29,6 +29,8 @@ func _physics_process(delta):
 		hitbox.scale = Vector2($TextureProgressBar.value/75,$TextureProgressBar.value/75)
 		Global.player_size = $TextureProgressBar.value
 	$Label.text = "%s" % $TextureProgressBar.value
+	if ($TextureProgressBar.value > MAX_WATER):
+		$TextureProgressBar.value = MAX_WATER
 	if ($TextureProgressBar.value <= 0):
 		emit_signal("game_over")
 	else:

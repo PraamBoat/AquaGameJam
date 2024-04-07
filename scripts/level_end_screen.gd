@@ -62,6 +62,15 @@ func _on_texture_button_3_pressed():
 func _on_level_timer_recording_done():
 	show()
 	$ColorRect/Label2.text="Time: %s" % Global.time_taken[-1]
-	$ColorRect/Label3.text="Water: %s" % Global.water
+	$ColorRect/Label3.text="Water: %s" % Global.water + "%"
+	if Global.water <=20:
+		$Sprite2D.hide()
+		$Sprite2D2.hide()
+		$Sprite2D3.hide()
+	elif Global.water <=50:
+		$Sprite2D2.hide()
+		$Sprite2D3.hide()
+	elif Global.water <=85:
+		$Sprite2D3.hide()
 	levelOver = 1
 	get_tree().paused = true

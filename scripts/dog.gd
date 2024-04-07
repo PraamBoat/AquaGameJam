@@ -6,7 +6,7 @@ var player_position
 var target_position
 @onready var player = get_parent().get_node("Player")
 var HIT_TEXT = "Did you know that dogs drink about ¼ of what human need to drink?"
-var EAT_TEXT = "The reason why dogs can spill go much water when they drink is because they lack cheeks on their face!"
+var EAT_TEXT = "The reason why dogs can spill so much water when they drink is because they lack cheeks on their faces!"
 var seen = false
 var originalPosition
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://sqnsc2cyr1hc"]
+[gd_scene load_steps=31 format=3 uid="uid://sqnsc2cyr1hc"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_8xjmm"]
 [ext_resource type="PackedScene" uid="uid://tqjfgs2xk37e" path="res://scenes/player.tscn" id="2_phlvg"]
@@ -9,13 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://dvryaaskies6o" path="res://nodes/water_zone.tscn" id="6_tban2"]
 [ext_resource type="PackedScene" uid="uid://bm2vu73dslo8m" path="res://scenes/game_over.tscn" id="7_g8uie"]
 [ext_resource type="PackedScene" uid="uid://bg4gajjeq32x2" path="res://scenes/insect.tscn" id="7_l0kch"]
-[ext_resource type="PackedScene" uid="uid://bi0r5g5jmyoj" path="res://scenes/tip.tscn" id="8_cxgis"]
+[ext_resource type="PackedScene" path="res://scenes/tip.tscn" id="8_cxgis"]
 [ext_resource type="PackedScene" uid="uid://c8r8uyimmr701" path="res://scenes/dog.tscn" id="8_e3k20"]
 [ext_resource type="PackedScene" uid="uid://xt866y0kgyga" path="res://scenes/level_end_screen.tscn" id="9_mi2o3"]
 [ext_resource type="PackedScene" uid="uid://ckbcja0eexobg" path="res://scenes/Level_Timer.tscn" id="10_4dq14"]
-[ext_resource type="PackedScene" uid="uid://d21ehd288us0e" path="res://scenes/rat.tscn" id="10_hxa61"]
+[ext_resource type="PackedScene" path="res://scenes/rat.tscn" id="10_hxa61"]
 [ext_resource type="PackedScene" uid="uid://dmh247kpxlcqd" path="res://nodes/Water_Droplet.tscn" id="13_4uou3"]
 [ext_resource type="PackedScene" uid="uid://28bfe0h4vohj" path="res://scenes/level_exit.tscn" id="15_blalk"]
+[ext_resource type="PackedScene" uid="uid://coqekwgviove7" path="res://scenes/explore_objective.tscn" id="17_apvel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7wdw"]
 size = Vector2(585, 1.99272)
@@ -665,11 +666,11 @@ position = Vector2(-5374, 1228)
 scale = Vector2(0.246968, 0.246968)
 
 [node name="Water droplet43" parent="." instance=ExtResource("13_4uou3")]
-position = Vector2(-5442, 671)
+position = Vector2(-5650, 830)
 scale = Vector2(0.246968, 0.246968)
 
 [node name="Water droplet44" parent="." instance=ExtResource("13_4uou3")]
-position = Vector2(-5357, 671)
+position = Vector2(-5106, 1009)
 scale = Vector2(0.246968, 0.246968)
 
 [node name="Water droplet45" parent="." instance=ExtResource("13_4uou3")]
@@ -687,6 +688,10 @@ scale = Vector2(0.246968, 0.246968)
 [node name="Water droplet48" parent="." instance=ExtResource("13_4uou3")]
 position = Vector2(-1440, 1269)
 scale = Vector2(0.246968, 0.246968)
+
+[node name="Explore Objective" parent="." instance=ExtResource("17_apvel")]
+position = Vector2(-5396, 659)
+scale = Vector2(25.2116, 6.07223)
 
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Sprite2D/Area2D2" to="." method="_on_area_2d_2_body_entered"]
@@ -731,6 +736,8 @@ scale = Vector2(0.246968, 0.246968)
 [connection signal="collect" from="Water droplet3" to="Player/Camera2D/tip" method="_on_water_droplet_3_collect"]
 [connection signal="collect" from="Water droplet" to="Player/Camera2D/WaterBar" method="_on_water_droplet_collect"]
 [connection signal="collect" from="Water droplet" to="Player/Camera2D/tip" method="_on_water_droplet_collect"]
+[connection signal="canEnd" from="Level_Exit" to="Player/Camera2D/tip" method="_on_level_exit_can_end"]
+[connection signal="cannotEnd" from="Level_Exit" to="Player/Camera2D/tip" method="_on_level_exit_cannot_end"]
 [connection signal="endLevel" from="Level_Exit" to="Player/Camera2D/LevelTimer" method="_on_level_exit_end_level"]
 [connection signal="collect" from="Water droplet4" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
 [connection signal="collect" from="Water droplet5" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
@@ -783,3 +790,5 @@ scale = Vector2(0.246968, 0.246968)
 [connection signal="collect" from="Water droplet46" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
 [connection signal="collect" from="Water droplet47" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
 [connection signal="collect" from="Water droplet48" to="Player/Camera2D/WaterBar" method="_on_water_droplet_2_collect"]
+[connection signal="AchievementComplete" from="Explore Objective" to="Player/Camera2D/tip" method="_on_explore_objective_achievement_complete"]
+[connection signal="AchievementComplete" from="Explore Objective" to="Level_Exit" method="_on_explore_objective_achievement_complete"]

@@ -114,7 +114,7 @@ func _input(event):
 		if (downPress || rightPress || upPress || downPress):
 			$AudioStreamPlayer2D.play()
 		dashing = false
-		Global.passiveDrain -= 4
+		Global.passiveDrain -= 2
 
 func _on_node_2d_game_over():
 	queue_free()

@@ -6,7 +6,7 @@ var player_position
 var target_position
 @onready var player = get_parent().get_node("Player")
 var HIT_TEXT = "Did you know that insects were the first type of animal to go on land after the ocean formed?"
-var EAT_TEXT = "Cool Bug Fact: Did you know that most insects can walk water?"
+var EAT_TEXT = "Cool Bug Fact: Did you know that most insects can walk on water?"
 
 signal hit
 signal eat
