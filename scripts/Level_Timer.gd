@@ -2,6 +2,7 @@ extends Node2D
 
 var time = 0;
 var timer_on =false
+signal recordingDone
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Label.text="0"
@@ -20,8 +21,9 @@ func _process(delta):
 	
 
 func _on_level_exit_end_level():
-	Global.time_taken.append($Label.text)
+	Global.time_taken[$Label.text]
 	timer_on=false
+	emit_signal("recordingDone")
 	print($Label.text)
 
 

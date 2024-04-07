@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://sqnsc2cyr1hc"]
+[gd_scene load_steps=30 format=3 uid="uid://sqnsc2cyr1hc"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_8xjmm"]
 [ext_resource type="PackedScene" uid="uid://tqjfgs2xk37e" path="res://scenes/player.tscn" id="2_phlvg"]
@@ -9,10 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://dvryaaskies6o" path="res://nodes/water_zone.tscn" id="6_tban2"]
 [ext_resource type="PackedScene" uid="uid://bm2vu73dslo8m" path="res://scenes/game_over.tscn" id="7_g8uie"]
 [ext_resource type="PackedScene" uid="uid://bg4gajjeq32x2" path="res://scenes/insect.tscn" id="7_l0kch"]
-[ext_resource type="PackedScene" uid="uid://bi0r5g5jmyoj" path="res://scenes/tip.tscn" id="8_cxgis"]
+[ext_resource type="PackedScene" path="res://scenes/tip.tscn" id="8_cxgis"]
 [ext_resource type="PackedScene" uid="uid://c8r8uyimmr701" path="res://scenes/dog.tscn" id="8_e3k20"]
-[ext_resource type="PackedScene" uid="uid://d21ehd288us0e" path="res://scenes/rat.tscn" id="10_hxa61"]
+[ext_resource type="PackedScene" uid="uid://xt866y0kgyga" path="res://scenes/level_end_screen.tscn" id="9_mi2o3"]
+[ext_resource type="PackedScene" uid="uid://ckbcja0eexobg" path="res://scenes/Level_Timer.tscn" id="10_4dq14"]
+[ext_resource type="PackedScene" path="res://scenes/rat.tscn" id="10_hxa61"]
 [ext_resource type="PackedScene" uid="uid://dmh247kpxlcqd" path="res://nodes/Water_Droplet.tscn" id="13_4uou3"]
+[ext_resource type="PackedScene" uid="uid://28bfe0h4vohj" path="res://scenes/level_exit.tscn" id="15_blalk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7wdw"]
 size = Vector2(585, 1.99272)
@@ -386,6 +389,17 @@ offset_right = -994.646
 offset_bottom = -555.12
 scale = Vector2(1.70212, 1.70212)
 
+[node name="Level_End_Screen" parent="Player/Camera2D" instance=ExtResource("9_mi2o3")]
+offset_left = -977.173
+offset_top = -545.711
+offset_right = -937.173
+offset_bottom = -505.711
+scale = Vector2(48.7812, 27.1991)
+
+[node name="LevelTimer" parent="Player/Camera2D" instance=ExtResource("10_4dq14")]
+position = Vector2(729.855, -377.697)
+scale = Vector2(1.80693, 1.77619)
+
 [node name="Water_Zone" parent="." instance=ExtResource("6_tban2")]
 position = Vector2(763, 1882)
 scale = Vector2(1.20714, 1.11967)
@@ -434,10 +448,15 @@ scale = Vector2(0.394421, 0.394421)
 position = Vector2(-341, 1287)
 scale = Vector2(0.393707, 0.393707)
 
+[node name="Level_Exit" parent="." instance=ExtResource("15_blalk")]
+position = Vector2(-4369, 270)
+scale = Vector2(2.31733, 1.30066)
+
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Sprite2D/Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="game_over" from="Player/Camera2D/WaterBar" to="Player/Camera2D/GameOver" method="_on_water_bar_game_over"]
 [connection signal="show_popup" from="Player/Camera2D/WaterBar" to="Player/Camera2D/PopUp" method="_on_water_bar_show_popup"]
+[connection signal="recordingDone" from="Player/Camera2D/LevelTimer" to="Player/Camera2D/Level_End_Screen" method="_on_level_timer_recording_done"]
 [connection signal="NotWater" from="Water_Zone" to="Player/Camera2D/WaterBar" method="_on_water_zone_not_water"]
 [connection signal="Water" from="Water_Zone" to="Player/Camera2D/WaterBar" method="_on_water_zone_water"]
 [connection signal="NotWater" from="Water_Zone2" to="Player/Camera2D/WaterBar" method="_on_water_zone_2_not_water"]
@@ -460,3 +479,4 @@ scale = Vector2(0.393707, 0.393707)
 [connection signal="collect" from="Water droplet3" to="Player/Camera2D/tip" method="_on_water_droplet_3_collect"]
 [connection signal="collect" from="Water droplet" to="Player/Camera2D/WaterBar" method="_on_water_droplet_collect"]
 [connection signal="collect" from="Water droplet" to="Player/Camera2D/tip" method="_on_water_droplet_collect"]
+[connection signal="endLevel" from="Level_Exit" to="Player/Camera2D/LevelTimer" method="_on_level_exit_end_level"]

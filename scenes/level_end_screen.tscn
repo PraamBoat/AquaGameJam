@@ -1,0 +1,169 @@
+[gd_scene load_steps=7 format=3 uid="uid://xt866y0kgyga"]
+
+[ext_resource type="Texture2D" uid="uid://buxe6lprsycuf" path="res://images/button.png" id="1_blqco"]
+[ext_resource type="Script" path="res://scripts/level_end_screen.gd" id="1_ecyuq"]
+[ext_resource type="FontFile" uid="uid://dwj5p6xwlxtmt" path="res://images/SuperComic-qZg62.ttf" id="2_esyxk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m3y06"]
+font = ExtResource("2_esyxk")
+font_size = 29
+font_color = Color(0, 0.350338, 0.67517, 1)
+outline_size = 3
+outline_color = Color(1, 0.913725, 0, 1)
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 0.992157)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h5bcp"]
+font = ExtResource("2_esyxk")
+font_size = 25
+font_color = Color(1, 0.913725, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0.350338, 0.67517, 1)
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dk2r7"]
+font = ExtResource("2_esyxk")
+font_size = 17
+font_color = Color(1, 1, 1, 0.992157)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.992157)
+
+[node name="Level_End_Screen" type="Control"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(113.509, 57.4418)
+script = ExtResource("1_ecyuq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 27.0
+offset_bottom = 27.0
+scale = Vector2(1.49822, 1.49109)
+color = Color(0, 0.498039, 1, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 7.98232
+offset_top = 1.119
+offset_right = 289.982
+offset_bottom = 69.119
+scale = Vector2(0.0374377, 0.0608066)
+text = "Level Complete!"
+label_settings = SubResource("LabelSettings_m3y06")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 3.10477
+offset_top = 4.98535
+offset_right = 285.105
+offset_bottom = 72.9854
+scale = Vector2(0.0374377, 0.0608066)
+text = "Time:   "
+label_settings = SubResource("LabelSettings_h5bcp")
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="ColorRect"]
+offset_left = 14.0
+offset_top = 5.0
+offset_right = 324.0
+offset_bottom = 73.0
+scale = Vector2(0.0374377, 0.0608066)
+text = "Water:   "
+label_settings = SubResource("LabelSettings_h5bcp")
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 2.21854
+offset_top = 29.1685
+offset_right = 1394.22
+offset_bottom = 1302.17
+scale = Vector2(0.00724993, 0.00405156)
+texture_normal = ExtResource("1_blqco")
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureButton"]
+modulate = Color(0.505882, 0, 0.443137, 1)
+z_index = -1
+position = Vector2(821.316, 638.415)
+scale = Vector2(0.778156, 0.625762)
+texture = ExtResource("1_blqco")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 14.7324
+offset_top = 29.2305
+offset_right = 1406.73
+offset_bottom = 1302.23
+scale = Vector2(0.00724993, 0.00405156)
+texture_normal = ExtResource("1_blqco")
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureButton2"]
+modulate = Color(0.505882, 0, 0.443137, 1)
+z_index = -1
+position = Vector2(821.316, 638.415)
+scale = Vector2(0.778156, 0.625762)
+texture = ExtResource("1_blqco")
+
+[node name="TextureButton3" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 27.7317
+offset_top = 29.1685
+offset_right = 1419.73
+offset_bottom = 1302.17
+scale = Vector2(0.00719676, 0.00387955)
+texture_normal = ExtResource("1_blqco")
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureButton3"]
+modulate = Color(0.505882, 0, 0.443137, 1)
+z_index = -1
+position = Vector2(701.01, 692.578)
+scale = Vector2(0.609157, 0.47259)
+texture = ExtResource("1_blqco")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.40942
+offset_top = 29.4908
+offset_right = 317.409
+offset_bottom = 97.4908
+scale = Vector2(0.0374377, 0.0608066)
+text = "Next Level"
+label_settings = SubResource("LabelSettings_dk2r7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 14.3299
+offset_top = 29.4924
+offset_right = 330.33
+offset_bottom = 97.4924
+scale = Vector2(0.0374377, 0.0608066)
+text = "Retry"
+label_settings = SubResource("LabelSettings_dk2r7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 27.1115
+offset_top = 29.2994
+offset_right = 343.112
+offset_bottom = 97.2994
+scale = Vector2(0.0374377, 0.0608066)
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_dk2r7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="TextureButton3" to="." method="_on_texture_button_3_pressed"]

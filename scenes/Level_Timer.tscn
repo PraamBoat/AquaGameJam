@@ -1,8 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckbcja0eexobg"]
+[gd_scene load_steps=4 format=3 uid="uid://ckbcja0eexobg"]
 
+[ext_resource type="Texture2D" uid="uid://4f2ukg28k8vp" path="res://images/puddle.png" id="2_odudu"]
 [ext_resource type="Script" path="res://scripts/Level_Timer.gd" id="2_ywp78"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_xobmu"]
+[sub_resource type="QuadMesh" id="QuadMesh_3ql22"]
 
 [node name="LevelTimer" type="Node2D"]
 process_mode = 1
@@ -12,6 +13,7 @@ script = ExtResource("2_ywp78")
 autostart = true
 
 [node name="Label" type="Label" parent="."]
+modulate = Color(0, 0.458824, 0.866667, 1)
 z_index = 1
 offset_left = -80.0
 offset_top = -26.0
@@ -21,6 +23,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-modulate = Color(0.160784, 0.160784, 0.160784, 1)
+modulate = Color(0.960784, 0.960784, 0.960784, 1)
 scale = Vector2(163, 55)
-mesh = SubResource("QuadMesh_xobmu")
+mesh = SubResource("QuadMesh_3ql22")
+texture = ExtResource("2_odudu")
