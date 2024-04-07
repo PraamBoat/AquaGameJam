@@ -1,12 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxlmynlyt4ehu"]
+[gd_scene load_steps=11 format=3 uid="uid://bxlmynlyt4ehu"]
 
 [ext_resource type="Script" path="res://scripts/water_bar.gd" id="1_76l8e"]
+[ext_resource type="FontFile" uid="uid://dwj5p6xwlxtmt" path="res://images/SuperComic-qZg62.ttf" id="2_3xic3"]
 [ext_resource type="Texture2D" uid="uid://c34bsqpmpmfhf" path="res://images/gauge_bottom.png" id="2_okfic"]
 [ext_resource type="Texture2D" uid="uid://chbtkacit4wj1" path="res://images/gauge_top.png" id="3_paj6o"]
 [ext_resource type="Texture2D" uid="uid://bwofws7661mj7" path="res://images/gauge_fill.png" id="4_3q3w6"]
 [ext_resource type="Texture2D" uid="uid://dghfse4lkgm5g" path="res://images/blobby.png" id="5_7v15i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fb4pc"]
+font = ExtResource("2_3xic3")
+font_size = 48
+font_color = Color(0, 0.458824, 0.866667, 1)
 outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
@@ -93,15 +97,16 @@ offset_bottom = 40.0
 script = ExtResource("1_76l8e")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 z_index = 1
 layout_mode = 0
-offset_left = 89.0
-offset_top = 106.0
-offset_right = 136.0
-offset_bottom = 132.0
-text = "Water"
+offset_left = 57.0
+offset_top = 89.0
+offset_right = 163.0
+offset_bottom = 136.0
+text = "100"
 label_settings = SubResource("LabelSettings_fb4pc")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 0

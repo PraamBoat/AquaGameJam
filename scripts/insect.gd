@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 200
+var speed = 150
 var size = 15
 var player_position
 var target_position
@@ -15,7 +15,7 @@ func _process(delta):
 	if is_instance_valid(player):
 		player_position = player.position
 		target_position = (player_position - position).normalized()
-		if position.distance_to(player_position) < 800:
+		if position.distance_to(player_position) < 700:
 			velocity = target_position * speed
 			move_and_slide()
 

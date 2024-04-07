@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://sqnsc2cyr1hc"]
+[gd_scene load_steps=23 format=3 uid="uid://sqnsc2cyr1hc"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_8xjmm"]
 [ext_resource type="PackedScene" uid="uid://tqjfgs2xk37e" path="res://scenes/player.tscn" id="2_phlvg"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dvryaaskies6o" path="res://nodes/water_zone.tscn" id="6_tban2"]
 [ext_resource type="PackedScene" uid="uid://bg4gajjeq32x2" path="res://scenes/insect.tscn" id="7_l0kch"]
 [ext_resource type="PackedScene" uid="uid://c8r8uyimmr701" path="res://scenes/dog.tscn" id="8_e3k20"]
+[ext_resource type="PackedScene" uid="uid://d21ehd288us0e" path="res://scenes/rat.tscn" id="10_hxa61"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7wdw"]
 size = Vector2(585, 1.99272)
@@ -388,6 +389,10 @@ scale = Vector2(-0.19736, 0.19736)
 position = Vector2(-4371, 272)
 scale = Vector2(2.78334, 1.31509)
 
+[node name="Rat" parent="." instance=ExtResource("10_hxa61")]
+position = Vector2(66, -1037)
+scale = Vector2(0.28891, 0.28891)
+
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="show_popup" from="Player/Camera2D/WaterBar" to="Player/Camera2D/PopUp" method="_on_water_bar_show_popup"]
 [connection signal="NotWater" from="Water_Zone" to="Player/Camera2D/WaterBar" method="_on_water_zone_not_water"]
@@ -403,3 +408,5 @@ scale = Vector2(2.78334, 1.31509)
 [connection signal="eat" from="Dog" to="Player/Camera2D/WaterBar" method="_on_dog_eat"]
 [connection signal="hit" from="Dog" to="Player/Camera2D/WaterBar" method="_on_dog_hit"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="eat" from="Rat" to="Player/Camera2D/WaterBar" method="_on_rat_eat"]
+[connection signal="hit" from="Rat" to="Player/Camera2D/WaterBar" method="_on_rat_hit"]

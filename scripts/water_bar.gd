@@ -18,7 +18,7 @@ signal show_popup
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Label.text = "Health %s" % water
+	$Label.text = "%s" % water
 	$TextureProgressBar.value = water
 	$AnimationPlayer.play("active")
 	loops = 0
@@ -28,6 +28,7 @@ func _physics_process(delta):
 		sprite.scale = Vector2($TextureProgressBar.value/800,$TextureProgressBar.value/800)
 		hitbox.scale = Vector2($TextureProgressBar.value/75,$TextureProgressBar.value/75)
 		Global.player_size = $TextureProgressBar.value
+	$Label.text = "%s" % $TextureProgressBar.value
 
 func _input(event):
 	if event.is_action_pressed("ui_copy"):
@@ -35,7 +36,7 @@ func _input(event):
 
 func _on_timer_timeout():
 	$TextureProgressBar.value -= Global.passiveDrain
-	$Label.text = "Health is %s" % $TextureProgressBar.value
+	#$Label.text = "%s" % $TextureProgressBar.value
 	if ($TextureProgressBar.value <= 0):
 		$Label.text = "Dead"
 		emit_signal("game_over")
@@ -53,7 +54,7 @@ func _on_water_zone_water():
 
 func _on_dog_hit():
 	$TextureProgressBar.value -= 10
-	$Label.text = "Health is %s" % $TextureProgressBar.value
+	#$Label.text = "%s" % $TextureProgressBar.value
 	$AudioStreamPlayer.stream = splash
 	$AudioStreamPlayer.play()
 	loops = 0
@@ -62,7 +63,7 @@ func _on_dog_hit():
 	
 func _on_insect_hit():
 	$TextureProgressBar.value -= 5
-	$Label.text = "Health is %s" % $TextureProgressBar.value
+	#$Label.text = "%s" % $TextureProgressBar.value
 	$AudioStreamPlayer.stream = splash
 	$AudioStreamPlayer.play()
 	loops = 0
@@ -72,14 +73,14 @@ func _on_insect_hit():
 
 func _on_insect_eat():
 	$TextureProgressBar.value += 15
-	$Label.text = "Health is %s" % $TextureProgressBar.value
+	#$Label.text = "%s" % $TextureProgressBar.value
 	$AudioStreamPlayer.stream = sploosh
 	$AudioStreamPlayer.play()
 	emit_signal("show_popup")
 
 func _on_dog_eat():
 	$TextureProgressBar.value += 50
-	$Label.text = "Health is %s" % $TextureProgressBar.value
+	#$Label.text = "%s" % $TextureProgressBar.value
 	$AudioStreamPlayer.stream = sploosh
 	$AudioStreamPlayer.play()
 	emit_signal("show_popup")
@@ -116,3 +117,21 @@ func _on_animation_player_animation_finished(anim_name):
 		else:
 			loops+=1
 			$AnimationPlayer.play("damage")
+
+
+func _on_rat_eat():
+	$TextureProgressBar.value += 20
+	#$Label.text = "%s" % $TextureProgressBar.value
+	$AudioStreamPlayer.stream = sploosh
+	$AudioStreamPlayer.play()
+	emit_signal("show_popup")
+
+
+func _on_rat_hit():
+	$TextureProgressBar.value -= 10
+	#$Label.text = "%s" % $TextureProgressBar.value
+	$AudioStreamPlayer.stream = splash
+	$AudioStreamPlayer.play()
+	loops = 0
+	$AnimationPlayer.play("damage")
+	emit_signal("show_popup")
